@@ -8,7 +8,10 @@ gem 'dm-sqlite-adapter'
 gem 'attr_encrypted'
 gem 'chartkick'
 gem 'sequel', '~>4.3'
+gem 'sinatra-websocket'
 gem 'rerun', require: false
+gem 'sequel', '~>4.3'
+
 
 group :development do
   gem 'thin'           , :require => false
