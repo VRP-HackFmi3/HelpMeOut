@@ -1,14 +1,14 @@
 require 'rubygems'
 require 'bundler'
 
-module HepMeOut
+module HelpMeOut
   Bundler.require
 
   class HelpMeOutBase < Sinatra::Base
     enable :sessions
 
     set :views, File.expand_path('../views', __FILE__)
-    set :public_folder, File.expand_path(settings.public_path)
+    set :public_folder, File.expand_path('../public', __FILE__)
 
     not_found do
       haml :not_found
@@ -18,13 +18,10 @@ end
 
 Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
 
-DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/development.db")
-
-DataMapper.auto_upgrade!
-DataMapper.finalize
+DB = Sequel.sqlite './database/development.db'
 
 PATHS = {
-  '/'           => HelpMeOut::WebsiteController,
+  '/'           => HelpMeOut::WebsiteController
   # '/user'       => HelpMeOut::AuthenticationController,
   # '/categories' => HelpMeOut::CategoryController,
   # '/expenses'   => HelpMeOut::ExpenseController,
