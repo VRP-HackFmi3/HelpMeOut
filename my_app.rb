@@ -13,12 +13,13 @@ module HelpMeOut
     not_found do
       haml :not_found
     end
+
+    DB = Sequel.sqlite('database/development.db')
+
   end
 end
 
 Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
-
-DB = Sequel.sqlite './database/development.db'
 
 PATHS = {
   '/'           => HelpMeOut::WebsiteController
