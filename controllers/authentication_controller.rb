@@ -12,9 +12,7 @@ module HelpMeOut
       @error = passwords_dont_meet_criteria(params[:password], params[:repeated_password])
       unless @error
         user = User.create(username: params[:username], password: params[:password], email: params[:email])
-        user.insert
-        # create_user(params[:username], params[:password], params[:email])
-        redirect '/user/login' unless @error
+        redirect '/user/login'
       end
       p @error
       haml :register

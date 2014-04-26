@@ -4,6 +4,10 @@ module HelpMeOut
   	# 	haml :register
   	# end
 
+    # get '/' do
+    #   haml :homepage
+    # end
+
   	get '/create_event' do
   		haml :create_event
   	end
