@@ -3,7 +3,8 @@
     %p= question.title
     %p= question.field_id
     %p= find_field_name(question.field_id)
-    %p= question.time_expires - Time.now
+    %p= question.time_expires
+    %p= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
 
 %div.span8.pull-left
   .row
