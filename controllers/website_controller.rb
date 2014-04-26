@@ -1,12 +1,11 @@
 module HelpMeOut
   class WebsiteController < HelpMeOutBase
-  	# get '/register' do
-  	# 	haml :register
-  	# end
+    get '/' do
+      redirect '/user/login' if not user_logged?
+      haml :home
+    end
 
-    # get '/' do
-    #   haml :homepage
-    # end
+    helpers AuthenticationHelpers
 
   	get '/create_event' do
   		haml :create_event
