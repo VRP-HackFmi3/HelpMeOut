@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'bundler'
 
-module HelpMeOut
-  Bundler.require
+Bundler.require
+require 'sinatra/json'
 
+module HelpMeOut
   class HelpMeOutBase < Sinatra::Base
     enable :sessions
 

@@ -5,7 +5,7 @@
 
 	websocket.onmessage = function(e){
 		var msg = document.createElement("p");
-		$(msg).text(e.data)
+		$(msg).text(urlify(e.data))
 		$("#messages").append(msg);
 	}
 
@@ -20,10 +20,22 @@
 		}
 	})
 
+	function urlify(text) {
+	    var urlRegex = /(https?:\/\/[^\s]+)/g;
+	    return text.replace(urlRegex, function(url) {
+	    	if("#linkAggregator").append(url);
+	        return '<a href="' + url + '">' + url + '</a>';
+	    })
+	    // or alternatively
+	    // return text.replace(urlRegex, '<a href="$1">$1</a>')
+	}
+
 	websocket.onclose = function(){
 		$("#sender").keypress(function(e){return false});
 		var msg = document.createElement("p");
-		$(msg).text("The host has left.")
+		$(msg).text("The host has left.");
 		$("#messages").append(msg);
 	}
+
+	$()
 })()
