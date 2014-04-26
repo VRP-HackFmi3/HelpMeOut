@@ -37,6 +37,32 @@ table.tablesorter thead tr .headerSortDown {
 table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
 background-color: #8dbdd8;
 }
+
 .selected{
 	background-color : #51a351 !important
 }
+
+body {
+	background-image: url('/img/background900.jpg');
+	background-size: 100%
+}
+
+.footerimage {
+    background: url('/img/footer.jpeg') no-repeat;
+    background-size: 100%
+}
+
+.modal {
+  top: 17%;
+  left: 20%;
+  right: 10%;
+  z-index: 1050;
+  width: 70%;
+  margin-left: -100px;
+	position: absolute;
+  background-color: #ffffff;
+  opacity: 0.8;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  }
+>>>>>>> Stashed changes
