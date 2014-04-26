@@ -5,11 +5,6 @@ module HelpMeOut
       haml :register
     end
 
-    get '/allSkills' do
-      @items = Field.all
-      @items.to_json
-    end
-
     get '/login' do
       haml :login
     end
