@@ -2,7 +2,7 @@
 %html
   %head
     %meta(charset="utf-8")
-    %title HelpMeOut
+    %title "HelpMeOut"
     %link(href="/css/bootstrap.css" rel="stylesheet" media="screen")
     %link(href="/css/chosen.css" rel="stylesheet" media="screen")
     %link(href="/css/style.css" rel="stylesheet" media="screen")
@@ -12,24 +12,48 @@
     %script(src="/js/jquery-2.1.0.min.js")
     %script(src="/js/bootstrap.js")
     %script(src="/js/chosen.jquery.js")
-    %script(src="/js/jquery.tablesorter.pager.js")
-    %script(src="/js/jquery.tablesorter.js")
     %script(src="/js/bootstrap-datetimepicker.min.js")
     %script(src="js/jquery.tablesorter.wigets.js")
     
 
-    .navbar
-      .navbar-inner
-        %a{class: "brand", href: "/"}HelpMeOut!
-        %ul.nav
-          %li.active
-            %a{href: "/"}Home
-          %li
-            %a{href: "/"}Play
+    .navbar.navbar-inner
+      %a.brand.navbar-left{href: "/"}
+        %img{src: "/img/logo40x40.png"} HelpMeOut!
+      .navbar-static-top
+        .navbar-header
+          %ul.nav.navbar-nav
+            %li.active
+              %a{href: "/"}Home
+            %li
+              %a{href: "/"}Play
+            %li
+              %a{href: "/"}About
+          %ul.nav.navbar-nav.pull-right
+            %li.right-spacer.dropdown
+              %a.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"}
+                profile
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  %a{href: "#"}
+                    %span.glyphicon.glyphicon-cog MyProfile
+                %li
+                  %a{href: "#"}
+                    %span.glyphicon.glyphicon-off Logout
 
-    #content
-      .right.column
-        %h2 Welcome to our site!
-        %p print_information
+    .container
+      .container-body
+        .modal     
+          =yield
+        
 
-    =yield
+        
+    .container
+      .navbar.navbar-inner.nav.navbar-fixed-bottom
+        %p.text-center A HackFmi3 project by VRP
+
+
+
+  / %ul.nav.navbar-nav.navbar-right
+  /   %li.right-spacer
+  /     %a{ href: "/user/logout" } Logout
