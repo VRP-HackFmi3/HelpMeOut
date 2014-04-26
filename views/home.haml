@@ -1,16 +1,16 @@
-- if @questions
-  - @questions.each do |question|
-    %p= question.title
-    %p= question.field_id
-    %p= find_field_name(question.field_id)
-    %p= question.time_expires
-    %p= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+-# - if @questions
+-#   - @questions.each do |question|
+-#     %p= question.title
+-#     %p= question.field_id
+-#     %p= find_field_name(question.field_id)
+-#     %p= question.time_expires
+-#     %p= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
 
 %div.span8.pull-left
   .row(style="margin:5px")
     %ul.nav.nav-pills
       %li.active{:data=>{:class=>'critical'}}
-        %a{:href=>'javascript:;'} Critical Events
+        %a{:href=>"javascript:;"} Critical Events
       %li{:data=>{:class=>'tommorow'}}
         %a{:href=>"javascript:;"}Events for Tommorow
       %li{:data=>{:class=>'questions'}}
@@ -48,7 +48,11 @@
                   $('.search-field input').height('20');
                   $('.chzn-choices').css({'border':'none'})
               %td
-                20.00
+                = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+                mins
+              %td
+                - link = '/answer/add/' + question.id.to_s
+                %a{href: link} Add answer
     .row
       %div.span4
       %input{:type=>'button',:value=>"See", :class=>'btn btn-normal span2 btn-success', :disabled=>true}
@@ -64,6 +68,8 @@
           $(this).children().addClass('selected');
       })
     });
+
+  %a{href: '/question/add'} Add a question
   .row.span8.tommorow.hideable
   .row.span8.questions.hideable
   .row.span8.my.hideable
