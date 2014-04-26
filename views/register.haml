@@ -1,6 +1,8 @@
 .text-center
   %h1 Register
 
+  = show_error_message
+
   %form{ :method => "post", :role => "form" }
     .row
       %label.span4.offset3{ :for => "username" } Username:
