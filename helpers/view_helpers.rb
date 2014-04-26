@@ -25,5 +25,9 @@ module HelpMeOut
     def find_field_name(field_id)
       Field.find(id: field_id).name
     end
+
+    def find_username(user_id)
+      User.find(id: user_id).username
+    end
   end
 end

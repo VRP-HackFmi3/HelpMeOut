@@ -16,7 +16,7 @@
       %li{:data=>{:class=>'questions'}}
         %a{:href=>"javascript:;"}Yes/No Questions
       %li{:data=>{:class=>'my'}}
-        %a{:href=>"javascript:;"}My Events
+        %a{:href=>'/question/myquestions'}My Events
     :javascript
       $('.nav li').click(function(){
         $('.hideable').hide();
@@ -37,7 +37,9 @@
         - if @questions
           - @questions.each do |question|
             %tr
-              %td{:style=>"color:#00FF00;font-size:200%"}= question.title
+              %td{:style=>"color:#00FF00;font-size:200%"}
+                %a= question.user.username
+                = question.title
               %td
                 %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
                   %option{:id=>question.field_id}=find_field_name(question.field_id)
@@ -47,7 +49,10 @@
                   $('.search-field input').height('20');
                   $('.chzn-choices').css({'border':'none'})
               %td.timer{:style=>"color:#FF0000;background-color:#000000;border-bottom: 1px #FFFFFF;font-size:200%"}
-                = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+                -if question.time_expires.to_time.to_i - Time.now.to_i < 0
+                  Expired
+                - else
+                  = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
               %td
                 - link = '/answer/add/' + question.id.to_s
                 %a{href: link} Add answer
