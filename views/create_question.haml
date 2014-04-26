@@ -1,6 +1,6 @@
 %div.alert-success.text-center
   %h1 Create Event
-%form{ :method => "post", :role => "form", :action=>"/questions/add" }
+%form{ :method => "post", :role => "form", :action=>"/question/add" }
   .row
     %div.offset4
       %label Title:
@@ -28,7 +28,7 @@
   .row{style:"margin-top:10px"}
     %div.offset4
       %label Explane your problem:
-      %textarea{:id=>'comment', :name=>'comment'}
+      %textarea{:id=>'text', :name=>'text'}
   .row
     %div.offset4
       %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

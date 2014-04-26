@@ -30,5 +30,5 @@ PATHS = {
   # '/expenses'   => HelpMeOut::ExpenseController,
   # '/report'     => HelpMeOut::ReportController
   '/user'       => HelpMeOut::AuthenticationController,
-  '/questions'  => HelpMeOut::QuestionsController
+  '/question'  => HelpMeOut::QuestionController
 }
