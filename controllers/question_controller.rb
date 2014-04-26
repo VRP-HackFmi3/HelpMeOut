@@ -12,6 +12,7 @@ module HelpMeOut
     end
 
     get '/add' do
+      @items = Field.all
       haml :create_question
     end
 
