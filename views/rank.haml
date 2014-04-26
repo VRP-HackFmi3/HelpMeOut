@@ -1,7 +1,8 @@
-%table.tablesorter{:id =>"emergencyTable"}
+%table.tablesorter{:id =>"emergencyTable", :style=>'display:none'}
   :javascript
     $(document).ready(function(){
       $('.search-choice > a').css({'display':'none'});
+      $('#emergencyTable').show();
     });
     
   %thead
