@@ -20,14 +20,19 @@ module HelpMeOut
     end
 
     post '/login' do
+
       user = User.find(username: params[:username])
 
-      if user.password == params[:password]
-        session[:username] = params[:username]
-        redirect_home
-      else
-        set_message("Wrong username or password.", :login)
+      unless user.nil?
+        if user.password == params[:password]
+          session[:username] = params[:username]
+          redirect_home
+        else
+          set_message("Wrong username or password.", :login)
+        end
       end
+
+      set_message("Wrong username or password.", :login)
     end
 
     get '/logout' do
