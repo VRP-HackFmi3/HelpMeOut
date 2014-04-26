@@ -1,14 +1,12 @@
 module HelpMeOut
   class AuthenticationController < HelpMeOutBase
     get '/register' do
-      DB = Sequel.connect('sqlite://development.db')
-      @items = DB[:fields]
+      @items = Field.all
       haml :register
     end
-    
+
     get '/allSkills' do
-      DB = Sequel.connect('sqlite://development.db')
-      @items = DB[:fields]
+      @items = Field.all
       @items.to_json
     end
 

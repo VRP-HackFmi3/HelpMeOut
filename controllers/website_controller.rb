@@ -4,10 +4,7 @@ module HelpMeOut
       redirect '/user/login' if not user_logged?
       haml :home
     end
-    helpers AuthenticationHelpers
 
-  	get '/create_event' do
-  	  haml :create_event
-  	end
+    helpers AuthenticationHelpers
   end
 end
