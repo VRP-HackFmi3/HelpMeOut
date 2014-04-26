@@ -22,9 +22,9 @@
       %label.span4.offset3 Select Your Skills
       .span4.offset3
         %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
-          %option Math
-          %option Swimming
-          %option Rammstein
+          - if @items
+            - @items.each do |element|
+              %option= element[:name]
         :javascript
           $(".chosen-select").attr('data-placeholder',"Select your skills").chosen().remove();
           $('.search-field input').height('20');
