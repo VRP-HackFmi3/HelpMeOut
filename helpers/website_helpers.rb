@@ -13,8 +13,9 @@ module HelpMeOut
       errors.full_messages.flatten.join(', ')
     end
 
-    def string_to_date(string)
-      Date.strptime(string, '%d/%m/%Y')
+    def date_string_to_int(string)
+      Time.parse(string).to_i
+      # Date.strptime(string, '%m/%d/%Y ')
     end
 
     def current_month_date_range

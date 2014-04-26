@@ -1,7 +1,7 @@
 module HelpMeOut
   module ViewHelpers
     def show_error_message
-      "<p class='lead text-danger spacer'>#{@error}</p>" if @error
+      "<p class='lead text-error spacer'>#{@error}</p>" if @error
     end
 
     def show_success_message
