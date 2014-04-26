@@ -1,0 +1,33 @@
+
+.text-center
+  %h1 Register
+
+  %form{ :method => "post", :role => "form" }
+    .row
+      %label.span4.offset3{ :for => "username" } Username:
+      .span4.offset3
+        %input.form-control{ :id => "username", :type => "text", :name => "username", :style=>"height:30px"}
+    .row
+      %label.span4.offset3{ :for => "email" } Email:
+      .span4.offset3
+        %input.form-control{ :id => "email", :type => "email", :name => "email" ,:style=>"height:30px"}
+    .row
+      %label.span4.offset3 Password:
+      .span4.offset3
+        %input.form-control{ :type => "password", :name => "password", :style=>"height:30px"}
+    .row
+      %label.span4.offset3 Repeat password:
+      .span4.offset3
+        %input.form-control{ :type => "password", :name => "repeated_password", :style=>"height:30px" }
+      .row
+      %label.span4.offset3 Select Your Skills
+      .span4.offset3
+        %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
+          %option Math
+          %option Swining
+          %option Rammstein
+        :javascript
+          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen().remove();
+          $('.search-field input').height('20');
+    %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large'} Submit
+
