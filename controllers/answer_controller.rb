@@ -15,6 +15,6 @@ module HelpMeOut
       Answer.create(type: answer_type,question: question, user: user, text: params[:text], time_answered: DateTime.now)
     end
 
-    helpers UserHelpers
+    helpers UserHelpers, AuthenticationHelpers
   end
 end
