@@ -21,5 +21,9 @@ module HelpMeOut
     def date_to_string(date)
       date.strftime("%d/%m/%Y")
     end
+
+    def find_field_name(field_id)
+      Field.find(id: field_id).name
+    end
   end
 end
