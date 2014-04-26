@@ -25,7 +25,7 @@
           %th Title
           %th Category
           %th Time Left
-      %tbody
+      %tbody{:style => "cursor:pointer"}
         %tr
           %td Help misho
           %td 
@@ -34,16 +34,43 @@
                 - @items.each do |element|
                   %option{:id=>element[:id]}= element[:name]
             :javascript
-              $(".chosen-select").val($(".chosen-select option").first().val())
+              $("#skills").val($("#skills option").first().val())
               $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
             20.00
-    :javascript
-      $(document).ready(function(){
-        $("#emergencyTable").tablesorter();
-      });
+        %tr
+          %td Help misho
+          %td 
+            %select{ :name => "skills", :id =>'skills1' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills1").val($("#skills1 option").first().val());
+              $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            20.00  
+    .row
+      %div.span4
+      %input{:type=>'button',:value=>"See", :class=>'btn btn-normal span2 btn-success', :disabled=>true}   
+  :javascript
+    $(document).ready(function(){
+      $(".tablesorter").tablesorter({
+          widthFixed:true,
+          widgets: ["zebra"]
+        });
+
+      $('.tablesorter tbody tr').click(function(){
+          $('.tablesorter tbody tr').children().removeClass('selected')
+          $(this).children().addClass('selected');
+      })
+    });
+
+
   .row.span8.tommorow.hideable
   .row.span8.questions.hideable
   .row.span8.my.hideable
