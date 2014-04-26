@@ -1,9 +1,15 @@
 module HelpMeOut
   class ChatController < HelpMeOutBase
-  	get '/chat' do 
+    before '/*' do
+      protected!
+    end
+
+  	get '/chat' do
   		session["username"] = "Penko"
   		session["questionId"] = 1122
   		haml :chat
   	end
+
+    helpers AuthenticationHelpers
   end
 end

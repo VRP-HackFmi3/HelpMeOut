@@ -1,5 +1,9 @@
 module HelpMeOut
   class QuestionController < HelpMeOutBase
+    before '/*' do
+      protected!
+    end
+
     get '/' do
       #take from query string
       #try to find question
@@ -34,6 +38,6 @@ module HelpMeOut
       user_questions = user.questions
     end
 
-    helpers UserHelpers, WebsiteHelpers
+    helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers
   end
 end
