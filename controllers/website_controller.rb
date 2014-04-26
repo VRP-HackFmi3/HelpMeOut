@@ -9,8 +9,13 @@ module HelpMeOut
         @items = Field.all
         redirect '/question/allquestions'
       end
+    end    
+
+    get '/ranking' do
+      @items = Field.all
+      haml :rank
     end
-    
+
     helpers AuthenticationHelpers
   end
 end
