@@ -7,9 +7,11 @@ module HelpMeOut
     # get '/' do
     #   haml :homepage
     # end
-
   	get '/create_event' do
-  		haml :create_event
+  	  haml :create_event
+  	end
+  	get '/' do
+  	  haml :home
   	end
   end
 end
