@@ -65,4 +65,8 @@ body {
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, 0.3);
   }
->>>>>>> Stashed changes
+
+div#skills_1_chzn.chzn-container ul.chzn-choices li#skills_1_chzn_c_0.search-choice a.search-choice-close
+{
+	display:none;
+}

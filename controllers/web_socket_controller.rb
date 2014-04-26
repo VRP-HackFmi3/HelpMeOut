@@ -19,7 +19,7 @@ module HelpMeOut
             puts session["username"]
             puts session["questionId"]
             HelpMeOut::Domain::Chat::ChannelManager.add_to_channel(session["username"],ws,session["questionId"])
-            ws.send "Hello {session['username']}"
+            ws.send "Hello #{session['username']}"
           end
           ws.onmessage do |msg|
             EM.next_tick do
