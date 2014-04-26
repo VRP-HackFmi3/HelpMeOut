@@ -1,6 +1,6 @@
 (function(){
 
-	var uri = 'ws://' + window.location.hostname + ':9292/channel/channel';
+	var uri = 'ws://' + window.location.hostname + (location.port ? ':'+location.port: '') + "/channel/channel';
 	websocket = new WebSocket(uri);
 
 	websocket.onmessage = function(e){
