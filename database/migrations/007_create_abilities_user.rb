@@ -1,6 +1,6 @@
 Sequel.migration do
   change do
-    create_table(:abilitiesusers) do
+    create_table(:abilities_users) do
       primary_key :id
       foreign_key :user_id, :users
       foreign_key :field_id , :fields
