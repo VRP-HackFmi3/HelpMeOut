@@ -19,9 +19,9 @@
     %div.offset4
       %label Select your skills
       %select{ :name => "skills", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
-        %option Math
-        %option Swining
-        %option Rammstein
+        - if @items
+          - @items.each do |element|
+            %option= element[:name]
     :javascript
       $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
       $('.search-field input').height('20');
