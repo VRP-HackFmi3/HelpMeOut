@@ -13,4 +13,19 @@
     %script(src="/js/bootstrap.js")
     %script(src="/js/chosen.jquery.js")
     %script(src="/js/bootstrap-datetimepicker.min.js")
+
+    .navbar
+      .navbar-inner
+        %a{class: "brand", href: "/"}HelpMeOut!
+        %ul.nav
+          %li.active
+            %a{href: "/"}Home
+          %li
+            %a{href: "/"}Play
+
+    #content
+      .right.column
+        %h2 Welcome to our site!
+        %p print_information
+
     =yield
