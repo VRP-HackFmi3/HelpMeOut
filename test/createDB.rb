@@ -4,7 +4,6 @@ DB = Sequel.sqlite('../database/development.db')
 Dir['../{models}/*.rb'].each { |file| require file }
 
 
-
 at1 = AnswerType.create(name:"YesNo",score:1)
 at2 = AnswerType.create(name:"Critical",score:10)
 at3 = AnswerType.create(name:"Video",score:6)
@@ -32,7 +31,6 @@ u1 = User.create(username:"Drago",rank:r1,password:"Parola",first_name:"Drago",l
 u2 = User.create(username:"Ivan",rank:r1,password:"Parola",first_name:"Dragon",last_name:"Bush",email:"124mail@mail.com",xp:12)
 u3 = User.create(username:"Negur",rank:r2,password:"Parola",first_name:"Orel",last_name:"Petrov",email:"mai4124l@mail.com",xp:160)
 u4 = User.create(username:"Pacha",rank:r4,password:"Parola",first_name:"Kozi",last_name:"Krak",email:"maittl@mabil.com",xp:1024)
-
 
 
 u1.add_interest(f1)
