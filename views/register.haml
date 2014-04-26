@@ -26,7 +26,7 @@
             - @items.each do |element|
               %option= element[:name]
         :javascript
-          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen().remove();
+          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
           $('.search-field input').height('20');
     .row{:style=>'margin-top:20px'}
       %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

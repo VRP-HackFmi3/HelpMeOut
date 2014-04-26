@@ -1,6 +1,5 @@
  #!/bin/bash 
 
-cd `find ~/ -type d -name 'HelpMeOut'`
 cd ./database
 rm development.db
 sequel -m"./migrations/" sqlite://development.db
@@ -17,3 +16,4 @@ sqlite3 development.db 'insert into fields (name) values ("Biology")'
 sqlite3 development.db 'insert into fields (name) values ("Ruby")'
 sqlite3 development.db 'insert into fields (name) values ("Python")'
 sqlite3 development.db 'insert into fields (name) values ("Sports")'
+
