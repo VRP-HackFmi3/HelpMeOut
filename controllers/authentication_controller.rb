@@ -11,16 +11,16 @@ module HelpMeOut
     post '/register' do
       @error = passwords_dont_meet_criteria(params[:password], params[:repeated_password])
       unless @error
-        user = User.create(username: params[:username], password: params[:password], email: params[:email])
+        User.create(username: params[:username], password: params[:password], email: params[:email])
         redirect '/user/login'
       end
-      p @error
+
       haml :register
     end
 
     post '/login' do
-      user = find_user_by_username_and_password(params[:username], params[:password])
-      if user.size == 1
+      user = User.find(username: params[:username])
+      if user.password == params[:password]
         session[:username] = params[:username]
         redirect_home
       else
@@ -33,7 +33,7 @@ module HelpMeOut
       redirect_home
     end
 
-    helpers AuthenticationHelpers
-    helpers DataBaseHelpers::UserHelpers
+    helpers AuthenticationHelpers, WebsiteHelpers
+    helpers ViewHelpers
   end
 end
