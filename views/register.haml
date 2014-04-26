@@ -24,10 +24,11 @@
       .span4.offset3
         %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
           %option Math
-          %option Swining
+          %option Swimming
           %option Rammstein
         :javascript
           $(".chosen-select").attr('data-placeholder',"Select your skills").chosen().remove();
           $('.search-field input').height('20');
-    %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large'} Submit
+    .row{:style=>'margin-top:20px'}
+      %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit
 
