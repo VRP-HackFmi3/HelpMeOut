@@ -1,3 +1,14 @@
+%div.span8.pull-left
+  %div.navbar
+    %div.navbar-inner
+      %a.brand{:href=>"#"}Critical Events
+      %ul.nav
+        %li.active
+          %a{:href=>"#"}Events for Tommorow
+        %li
+          %a{:href=>"#"}Yes/No Questions
+        %li
+          %a{:href=>"#"}My Events
 %h1 YOU ARE LOGGED !!!
 %p= session[:username]
 %a{ href: "/user/logout" } Logout
