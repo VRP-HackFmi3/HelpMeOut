@@ -5,6 +5,7 @@ module HelpMeOut
     end
 
     get '/add/:question_id' do
+      session["questionId"] = params[:question_id]
       haml :add_answer
     end
 

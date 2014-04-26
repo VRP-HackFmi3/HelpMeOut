@@ -3,18 +3,15 @@
 %form{ :method => "post", :role => "form", :action=>"/answer/add" }
   .row
     %div.offset4
-      %label Select the type of your answer
-      %select{ :name => "type", :id =>'type' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
-        %option Text
-        %option Video
-        %option Chat
-        %option Meeting
+      %label Answer with...
+      %a(href="/chat/chat")
+        A quick message conversation
     :javascript
       $(".chosen-select").attr('data-placeholder',"Select the type").chosen().remove();
       $('.search-field input').height('20');
   .row{style:"margin-top:10px"}
     %div.offset4
-      %label Text:
+      %label Quick Answer::
       %textarea{:id=>'text', :name=>'text'}
   .row
     %div.offset4
