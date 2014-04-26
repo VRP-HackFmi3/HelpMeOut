@@ -5,11 +5,6 @@ module HelpMeOut
       haml :register
     end
 
-    get '/allSkills' do
-      @items = Field.all
-      @items.to_json
-    end
-
     get '/login' do
       haml :login
     end
@@ -17,7 +12,7 @@ module HelpMeOut
     post '/register' do
       @error = passwords_dont_meet_criteria(params[:password], params[:repeated_password])
       unless @error
-        User.create(username: params[:username], password: params[:password], email: params[:email]);
+        User.create(username: params[:username], password: params[:password], email: params[:email])
         redirect '/user/login'
       end
 

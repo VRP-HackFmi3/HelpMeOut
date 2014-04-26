@@ -1,5 +1,9 @@
 module HelpMeOut
   class QuestionController < HelpMeOutBase
+    before '/*' do
+      protected!
+    end
+
     get '/' do
       #take from query string
       #try to find question
@@ -8,28 +12,33 @@ module HelpMeOut
     end
 
     get '/add' do
+      @items = Field.all
       haml :create_question
     end
 
     post '/add' do
+      puts "NANANNNANNAN"
+      # user = find_current_user
       user = User.find(username: session[:username])
-      created = DateTime.now
-      expires = DateTime.parse(params[:time])
-      p created
-      p expires
+      created = Time.now.to_i
+      expires = date_string_to_int(params[:time])
+
       Question.create(title: params[:title],
                       text: params[:text],
-                      user: user,
+                      user_id: user.id.to_i,
                       time_closed: false,
                       status: false,
                       time_created: created,
                       time_expires: expires,
                       )
+      redirect '/question/all'
     end
 
     get '/myquestions' do
       user = User.find(username: session[:username])
       user_questions = user.questions
     end
+
+    helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers
   end
 end

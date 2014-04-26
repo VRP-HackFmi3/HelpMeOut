@@ -3,6 +3,10 @@ require_relative '../domain/chat/channel_manager.rb'
 
 module HelpMeOut
   class ChannelController < HelpMeOutBase
+    before '/*' do
+      protected!
+    end
+
     set :server, 'thin'
     set :sockets, []
 
@@ -20,14 +24,14 @@ module HelpMeOut
           ws.onmessage do |msg|
             EM.next_tick do
               channel = HelpMeOut::Domain::Chat::ChannelManager.channel_of_user(session["username"])
-              channel.broadcast(session["username"] + ":" + msg) 
+              channel.broadcast(session["username"] + ":" + msg)
             end
           end
           ws.onclose do
             channel = HelpMeOut::Domain::Chat::ChannelManager.channel_of_user(session["username"])
             leftUser = session["username"]
             EM.next_tick do
-              if channel then 
+              if channel then
                 channel.broadcast(leftUser + " has left.")
               end
             end
@@ -36,5 +40,7 @@ module HelpMeOut
         end
       end
     end
+
+    helpers AuthenticationHelpers
   end
 end

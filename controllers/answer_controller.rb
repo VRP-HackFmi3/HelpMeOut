@@ -1,5 +1,9 @@
 module HelpMeOut
   class AnswerController < HelpMeOutBase
+    before '/*' do
+      protected!
+    end
+
     get '/add/:question_id' do
       haml :add_answer
     end

@@ -10,7 +10,7 @@
       %div
         %div.input-append{:id=>"dateTime"}
           %label I need this before date:
-          %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"MM/dd/yyyy HH:mm:ss PP",:style=>"height:30px"}
+          %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"dd/MM/yyyy hh:mm:ss",:style=>"height:30px"}
           %span.add-on
             %i{:data=>{"time-icon"=>"icon-time", "date-icon"=>"icon-calendar"}}
       :javascript
@@ -19,9 +19,9 @@
     %div.offset4
       %label Select your skills
       %select{ :name => "skills", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
-        %option Math
-        %option Swining
-        %option Rammstein
+        - if @items
+          - @items.each do |element|
+            %option= element[:name]
     :javascript
       $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
       $('.search-field input').height('20');
