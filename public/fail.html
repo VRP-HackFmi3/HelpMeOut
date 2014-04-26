@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script src="/js/jquery-2.1.0.min.js"></script>
+		<script src="/js/ynquestion.js"></script>
+	</head>
+	<body>
+		<div id="questionPlaceholder">
+			
+		</div>
+		<script type="text/javascript">
+			loadAnswer(function(e){
+				var title = document.createElement("h3");
+				var p = document.createElement("p");
+				$(title).text(e.question.title);
+				$(p).text(e.question.text)
+				var yes = document.createElement("button");
+				var no = document.createElement("button");
+				var responder = function(answer){
+					answerQuestion({
+						id:e.question.id,
+						answer:answer,
+					},function(e){
+						$(p).remove();
+						$(title).remove();
+						$(yes).remove();
+						$(no).remove();
+						console.log(e);
+					});
+				}
+				$(yes).click(function(){
+					responder("Yes");
+				}).text("Yes");
+				$(no).click(function(){
+					responder("No");
+				}).text("No");
+				$("#questionPlaceholder").append(title);
+				$("#questionPlaceholder").append(p);
+				$("#questionPlaceholder").append(yes);
+				$("#questionPlaceholder").append(no);
+			})
+		</script>
+	</body>
+</html>
