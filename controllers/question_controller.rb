@@ -39,6 +39,15 @@ module HelpMeOut
       user_questions = user.questions
     end
 
+    get '/tryquestion' do
+      def find_field(id)
+        return Field.find(id:id)
+      end
+      @questions = Question.all
+      haml :tryquestion
+    end
+
     helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers
+    
   end
 end
