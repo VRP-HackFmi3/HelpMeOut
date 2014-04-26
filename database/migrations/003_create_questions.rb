@@ -10,6 +10,7 @@ Sequel.migration do
       DateTime :time_expires
       DateTime :time_closed
       Integer :status
+      Integer :type
     end
   end
 end
