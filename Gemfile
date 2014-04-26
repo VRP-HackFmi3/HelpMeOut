@@ -14,6 +14,7 @@ gem 'sequel', '~>4.3'
 
 
 group :development do
+  gem 'shotgun'
   gem 'thin'           , :require => false
   gem 'sinatra-contrib', :require => false
 end

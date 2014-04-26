@@ -1,6 +1,8 @@
 .text-center
   %h1 Register
 
+  = show_error_message
+
   %form{ :method => "post", :role => "form" }
     .row
       %label.span4.offset3{ :for => "username" } Username:
@@ -26,7 +28,7 @@
             - @items.each do |element|
               %option= element[:name]
         :javascript
-          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen().remove();
+          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
           $('.search-field input').height('20');
     .row{:style=>'margin-top:20px'}
       %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

@@ -1,14 +1,12 @@
 module HelpMeOut
   class AuthenticationController < HelpMeOutBase
     get '/register' do
-      DB = Sequel.connect('sqlite://development.db')
-      @items = DB[:fields]
+      @items = Field.all
       haml :register
     end
-    
+
     get '/allSkills' do
-      DB = Sequel.connect('sqlite://development.db')
-      @items = DB[:fields]
+      @items = Field.all
       @items.to_json
     end
 
@@ -19,7 +17,7 @@ module HelpMeOut
     post '/register' do
       @error = passwords_dont_meet_criteria(params[:password], params[:repeated_password])
       unless @error
-        User.create(username: params[:username], password: params[:password], email: params[:email])
+        User.create(username: params[:username], password: params[:password], email: params[:email]);
         redirect '/user/login'
       end
 
@@ -28,6 +26,7 @@ module HelpMeOut
 
     post '/login' do
       user = User.find(username: params[:username])
+
       if user.password == params[:password]
         session[:username] = params[:username]
         redirect_home
