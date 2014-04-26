@@ -1,6 +1,6 @@
 (function(){
-
-	var uri = 'ws://' + window.location.hostname + ':9292/channel/channel';
+	console.log(location.port)
+	var uri = 'ws://' + window.location.hostname + (location.port ? ':'+location.port: '') + '/channel/channel';
 	websocket = new WebSocket(uri);
 
 	websocket.onmessage = function(e){
@@ -23,8 +23,21 @@
 	function urlify(text) {
 	    var urlRegex = /(https?:\/\/[^\s]+)/g;
 	    return text.replace(urlRegex, function(url) {
-	    	if("#linkAggregator").append(url);
-	        return '<a href="' + url + '">' + url + '</a>';
+	    	if(url.indexOf("www.youtube.com") > 0)
+	    	{
+	    		var y = "<iframe width='560' height='315' src='//www.youtube.com/embed/YafXXQeBnaI' frameborder='0' allowfullscreen></iframe>"
+	    		$("#linkAggregator").append(y);
+	    	}
+	    	else
+	    	{
+		    	var a = document.createElement("a");
+	    		var p = document.createElement("p");
+	    		$(a).attr("href",url);
+		    	$(a).text(a);
+		    	$(p).append(a);
+		    	$("#linkAggregator").append(p);
+	    	}
+	        return url;
 	    })
 	    // or alternatively
 	    // return text.replace(urlRegex, '<a href="$1">$1</a>')

@@ -7,7 +7,7 @@
 -#     %p= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
 
 %div.span8.pull-left
-  .row
+  .row(style="margin:5px")
     %ul.nav.nav-pills
       %li.active{:data=>{:class=>'critical'}}
         %a{:href=>"javascript:;"} Critical Events
@@ -39,11 +39,10 @@
             %tr
               %td= question.title
               %td
-                %select{ :name => "skills", :id =>'skills_', :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-                  %p= question.field_id
+                %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
                   %option{:id=>question.field_id}=find_field_name(question.field_id)
                 :javascript
-                  $("skills_").val($("#skills option").first().val())
+                  $("#skills_#{question.id.to_s}").val($("#skills_#{question.id.to_s} option").first().val())
                   $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
                   $('.search-field input').height('20');
                   $('.chzn-choices').css({'border':'none'})
@@ -69,11 +68,17 @@
       })
     });
 
-  %a{href: '/question/add'} Add a question
+  %a{href: '/question/add', style:"margin-left:22px"} Add a question
   .row.span8.tommorow.hideable
   .row.span8.questions.hideable
   .row.span8.my.hideable
-%aside
-  %li
-    Question 1: yes no
-  %li Question 2:
+
+  %div(style="width:150px;height:150px")
+
+%script(src="/js/ynquestion.js")
+%aside#questionPlaceholder.span2(style="float:right;margin-right:15px")
+
+:javascript
+  $(".search-choice-close").hide()
+
+%div(style="clear:both")

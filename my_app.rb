@@ -28,5 +28,6 @@ PATHS = {
   '/answer'     => HelpMeOut::AnswerController,
   '/question'  => HelpMeOut::QuestionController,
   '/channel'    => HelpMeOut::ChannelController,
-  '/chat'       => HelpMeOut::ChatController
+  '/chat'       => HelpMeOut::ChatController,
+  '/qaapi'      => HelpMeOut::AnswerApiController
 }
