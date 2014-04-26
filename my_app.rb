@@ -22,7 +22,8 @@ end
 Dir.glob('./{models,helpers,controllers}/*.rb').each { |file| require file }
 
 PATHS = {
-  '/'           => HelpMeOut::WebsiteController
+  '/'           => HelpMeOut::WebsiteController,
+  '/questions'  => HelpMeOut::QuestionsController
   # '/user'       => HelpMeOut::AuthenticationController,
   # '/categories' => HelpMeOut::CategoryController,
   # '/expenses'   => HelpMeOut::ExpenseController,

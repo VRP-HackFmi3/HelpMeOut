@@ -1,6 +1,6 @@
 %div.alert-success.text-center
   %h1 Create Event
-%form{ :method => "post", :role => "form" }
+%form{ :method => "post", :role => "form", :action=>"/questions/add" }
   .row
     %div.offset4
       %label Title:
@@ -10,7 +10,7 @@
       %div
         %div.input-append{:id=>"dateTime"}
           %label I need this before date:
-          %input{:type =>"text", :name=>'title', :id=>"dateTime", "data-format"=>"MM/dd/yyyy HH:mm:ss PP",:style=>"height:30px"}
+          %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"MM/dd/yyyy HH:mm:ss PP",:style=>"height:30px"}
           %span.add-on
             %i{:data=>{"time-icon"=>"icon-time", "date-icon"=>"icon-calendar"}}
       :javascript
