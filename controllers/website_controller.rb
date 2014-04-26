@@ -3,7 +3,7 @@ module HelpMeOut
     get '/' do
       @items = Field.all
       redirect '/user/login' if not user_logged?
-      haml :home
+      redirect '/question/allquestions'
     end
 
     helpers AuthenticationHelpers
