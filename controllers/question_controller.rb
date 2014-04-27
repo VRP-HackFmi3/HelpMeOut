@@ -51,10 +51,11 @@ module HelpMeOut
     end
 
     get '/tryquestion' do
-      def find_field(id)
-        return Field.find(id:id)
-      end
-      @questions = Question.order(:time_expires).limit(1)
+      # def find_field(id)
+      #   return Field.find(id:paid)
+      # end
+
+      @question = Questions.first(id:params[:id]);
       haml :tryquestion
     end
 
@@ -62,6 +63,14 @@ module HelpMeOut
       @question = Question.find(id: params[:question_id])
       @answers = Answer.where(question: @question).all
       haml :show_question
+    end
+
+    get '/nextday' do
+      next_day = DateTime.now.to_date + 1
+      questions = Question.all
+      questions = questions.sort_by { |question| question.time_expires.to_date }
+      @questions = questions.select { |question| question.time_expires.to_date == next_day }
+      haml :home
     end
 
     helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers, ViewHelpers

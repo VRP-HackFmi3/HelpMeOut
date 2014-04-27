@@ -15,7 +15,10 @@ module HelpMeOut
       @items = Field.all
       haml :rank
     end
-
+    
+    get '/achievements' do
+      haml :achievements
+    end
     helpers AuthenticationHelpers
   end
 end

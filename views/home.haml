@@ -23,7 +23,6 @@
         var showObj = $(this).attr('data-class');
         $('.nav li').removeClass('active');
         $(this).addClass('active');
-        console.log();
         $('.' + showObj).show();
       });
   .row.span10.critical.hideable
@@ -99,7 +98,6 @@
         var times = $(self).text().split('.');
         var minsLeft = parseInt(times[0],10);
         var secs = parseInt(times[1],10);
-        console.log(minsLeft, secs);
         if(secs == 0){
           minsLeft -=1;
           secs = 60;
