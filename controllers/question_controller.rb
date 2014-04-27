@@ -51,10 +51,11 @@ module HelpMeOut
     end
 
     get '/tryquestion' do
-      def find_field(id)
-        return Field.find(id:id)
-      end
-      @questions = Question.order(:time_expires).limit(1)
+      # def find_field(id)
+      #   return Field.find(id:paid)
+      # end
+
+      @question = Questions.first(id:params[:id]);
       haml :tryquestion
     end
 
