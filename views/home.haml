@@ -167,12 +167,22 @@
                     $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
                     $('.search-field input').height('20');
                     $('.chzn-choices').css({'border':'none'})
-                %td
-                  -if question.time_expires.to_time.to_i - Time.now.to_i < 0
+                %td.time_container
+                  - remainingTime = question.time_expires.to_time.to_i - Time.now.to_i
+                  - if(remainingTime > 0)
+                    %div.time_bar.hours{:data => {:maxcount => 24 , :current => remainingTime/(3600)}}
+                      %span.time_indicator
+                      h
+                    - remainingTime = remainingTime - (remainingTime/3600)*3600
+                    %div.time_bar.minutes{:data => {:maxcount => 60 , :current => remainingTime/(60)}}
+                      %span.time_indicator
+                      m
+                    - remainingTime = remainingTime - (remainingTime/60)*60
+                    %div.time_bar.seconds{:data => {:maxcount => 60 , :current => remainingTime}}
+                      %span.time_indicator
+                      s
+                  -else
                     Expired
-                  - else
-                    = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
-                %td
                   - link = '/answer/add/' + question.id.to_s
                   %a{href: link} Add answer
 

@@ -178,12 +178,12 @@ body {
 
 .time_bar[data-fill="1"]{
 	background: #F32C2C;
-	width:20px;
+	width:26px;
 }
 
 .time_bar[data-fill="0"]{
 	background: #FF1515;
-	width:20px;
+	width:26px;
 }
 
 .mycontent-left {
