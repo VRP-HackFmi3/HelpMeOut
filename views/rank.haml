@@ -1,6 +1,6 @@
 .modal-header
   %h2.text-center
-    Santa little helpers
+    Ranking
 .modal-body
   .row.spqn8.offset1
     %table.tablesorter{:id =>"emergencyTable", :style=>'display:none'}
@@ -12,12 +12,12 @@
         
       %thead
         %tr
-          %th Title:
+          %th Username
           %th Best Category
           %th Level
       %tbody{:style => "cursor:pointer;"}
         %tr
-          %td The One
+          %td TheOne
           %td 
             %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
@@ -29,7 +29,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/skanev.jpg"}
+            %img{:src=>"/img/yoda.jpg"}
         %tr
           %td Twitty
           %td 
@@ -43,7 +43,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/skanev.jpg"}
+            %img{:src=>"/img/yoda.jpg"}
         %tr
           %td FmiHacker
           %td 
@@ -71,7 +71,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/yoda.jpg"}
+            %img{:src=>"/img/gandalf.jpg"}
 
         %tr  
           %td AdMiRal
@@ -86,7 +86,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/yoda.jpg"} 
+            %img{:src=>"/img/gandalf.jpg"} 
         %tr  
           %td Sweety
           %td 
@@ -100,9 +100,9 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/yoda.jpg"}
+            %img{:src=>"/img/gandalf.jpg"}
         %tr  
-          %td Ivan Petroff
+          %td IvanPetroff
           %td 
             %select{ :name => "skills", :id =>'skills7' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
@@ -114,7 +114,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/gandalf.jpg"}
+            %img{:src=>"/img/waldo.jpg"}
         %tr  
           %td Voltron
           %td 
@@ -128,7 +128,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/gandalf.jpg"}
+            %img{:src=>"/img/waldo.jpg"}
         %tr  
           %td TheShamanKing
           %td 
@@ -142,7 +142,7 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/gandalf.jpg"}
+            %img{:src=>"/img/waldo.jpg"}
         %tr  
           %td Slash
           %td 

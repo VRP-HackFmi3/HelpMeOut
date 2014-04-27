@@ -14,7 +14,7 @@ r3 = Rank.create(score_min:250,name:"Wizard")
 r4 = Rank.create(score_min:1000,name:"Guru")
 r5 = Rank.create(score_min:9001,name:"Cheater")
 
-f1 = Field.create(name:"Math Gay")
+f1 = Field.create(name:"Math")
 f2 = Field.create(name:"Analysis")
 f3 = Field.create(name:"Magic")
 f4 = Field.create(name:"Car Drifting")

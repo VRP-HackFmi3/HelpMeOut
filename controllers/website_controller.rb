@@ -22,6 +22,10 @@ module HelpMeOut
       haml :achievements
     end
 
+    get '/about' do
+      haml :about
+    end
+
     get '/helpcenter' do
       user_wanted_fields = find_current_user.interests
 

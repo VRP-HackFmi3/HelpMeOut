@@ -50,11 +50,19 @@
                     $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
                     $('.search-field input').height('20');
                     $('.chzn-choices').css({'border':'none'})
-                %td.timer{:style=>"color:#FF0000;background-color:#000000;border-bottom: 1px #FFFFFF;font-size:200%"}
-                  -if question.time_expires.to_time.to_i - Time.now.to_i < 0
-                    Expired
-                  - else
-                    = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+                %td.time_container
+                  - remainingTime = question.time_expires.to_time.to_i - Time.now.to_i
+                  %div.time_bar.hours{:data => {:maxcount => 24 , :current => remainingTime/(3600)}}
+                    %span.time_indicator
+                    h
+                  - remainingTime = remainingTime - (remainingTime/3600)*3600
+                  %div.time_bar.minutes{:data => {:maxcount => 60 , :current => remainingTime/(60)}}
+                    %span.time_indicator
+                    m
+                  - remainingTime = remainingTime - (remainingTime/60)*60
+                  %div.time_bar.seconds{:data => {:maxcount => 60 , :current => remainingTime}}
+                    %span.time_indicator
+                    s
                 %td
                   - link = '/answer/add/' + question.id.to_s
                   %a{href: link} Add answer
@@ -100,6 +108,19 @@
                     $('.search-field input').height('20');
                     $('.chzn-choices').css({'border':'none'})
                 %td= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+                %td.time_container
+                  - remainingTime = question.time_expires.to_time.to_i - Time.now.to_i
+                  %div.time_bar.hours{:data => {:maxcount => 24 , :current => remainingTime/(3600)}}
+                    %span.time_indicator
+                    h
+                  - remainingTime = remainingTime - (remainingTime/3600)*3600
+                  %div.time_bar.minutes{:data => {:maxcount => 60 , :current => remainingTime/(60)}}
+                    %span.time_indicator
+                    m
+                  - remainingTime = remainingTime - (remainingTime/60)*60
+                  %div.time_bar.seconds{:data => {:maxcount => 60 , :current => remainingTime}}
+                    %span.time_indicator
+                    s
                 %td
                   - link = '/answer/add/' + question.id.to_s
                   %a{href: link} Add answer
@@ -129,6 +150,7 @@
                       %button.btn.btn-danger.pull-right
                         %i.icon-thumbs-down
                   %div{style: 'clear: both'}
+
     .row.span8.my.hideable{:style=>'display:none'}
       %h1 My Questions
       %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
@@ -172,26 +194,4 @@
 
 %div(style="clear:both")
 
-:javascript
-  $(document).ready(function(){
-    $('.timer').each(function(){
-      var self = this;
-      var timeLeft = parseInt($(this).text(),10)
-      var secs = 60;
-
-      $(this).text(timeLeft + '.' + secs + ' mins');
-      setInterval(function(){
-        var times = $(self).text().split('.');
-        var minsLeft = parseInt(times[0],10);
-        var secs = parseInt(times[1],10);
-        if(secs == 0){
-          minsLeft -=1;
-          secs = 60;
-        }else{
-          secs -= 1;
-        }
-        $(self).text(minsLeft + '.' + secs + ' mins');
-      },1000);
-    });
-  });
-
+%script(src="/js/timebarmanager.js")
