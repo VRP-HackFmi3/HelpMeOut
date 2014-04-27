@@ -7,7 +7,7 @@
     %link(href="/css/chosen.css" rel="stylesheet" media="screen")
     %link(href="/css/style.css" rel="stylesheet" media="screen")
     %link(href="/css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen")
-    
+
   %body
     %script(src="/js/jquery-2.1.0.min.js")
     %script(src="/js/bootstrap.js")
@@ -15,8 +15,6 @@
     %script(src="/js/bootstrap-datetimepicker.min.js")
     %script(src="js/jquery.tablesorter.js")
     %script(src="js/jquery.tablesorter.wigets.js")
-    %script(src="js/jquery.tablesorter.js")
-    
 
     .navbar.navbar-inner
       %a.brand.navbar-left{href: "/"}
@@ -25,37 +23,35 @@
         .navbar-header
           %ul.nav.navbar-nav
             %li.active
-              %a{href: "/"}Home
+              %a{href: "/question/allquestions"}Home
             %li
               %a{href: "/"}Play
             %li
               %a{href: "/"}About
           %ul.nav.navbar-nav.pull-right
-            %li.right-spacer.dropdown
-              %a.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"}
-                profile
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %a{href: "/profile"}
-                    %span.glyphicon.glyphicon-cog MyProfile
-                %li
-                  %a{href: "#"}
-                    %span.glyphicon.glyphicon-off Logout
+            - if user_logged?
+              %li.right-spacer.dropdown
+                %a.dropdown-toggle{"data-toggle" => "dropdown"}
+                  Profile
+                  %b.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{href: "/profile"}
+                      %span.glyphicon.glyphicon-cog MyProfile
+                  %li
+                    %a{href: "/user/logout"}
+                      %span.glyphicon.glyphicon-off Logout
+            - else
+              %li.right-spacer
+                %a{href: "/user/login"} Log in
 
     .container
       .container-body
-        .modal     
+        .modal
           =yield
-        
 
-        
+
+
     .container
       .navbar.navbar-inner.nav.navbar-fixed-bottom
         %p.text-center A HackFmi3 project by VRP
-
-
-
-  / %ul.nav.navbar-nav.navbar-right
-  /   %li.right-spacer
-  /     %a{ href: "/user/logout" } Logout

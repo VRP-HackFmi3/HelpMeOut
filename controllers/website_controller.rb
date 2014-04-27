@@ -16,6 +16,10 @@ module HelpMeOut
       haml :rank
     end
 
+    get '/achievements' do
+      haml :achievements
+    end
+
     helpers AuthenticationHelpers
   end
 end

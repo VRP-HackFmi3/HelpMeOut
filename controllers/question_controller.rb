@@ -38,13 +38,16 @@ module HelpMeOut
 
     get '/allquestions' do
       questions = Question.all
-      @questions = questions.sort_by { |question| question.time_expires.to_time.to_i }
+      questions = questions.sort_by { |question| question.time_expires.to_time.to_i }
+      @questions = questions.select { |question| question.time_expires.to_time.to_i - Time.now.to_i > 0 }
       haml :home
     end
 
     get '/myquestions' do
-      user = User.find(username: session[:username])
-      user_questions = user.questions
+      user = find_current_user
+
+      @questions = Question.where(user: user).all.sort_by { |question| question.time_created.to_time.to_i }
+      haml :home
     end
 
     get '/tryquestion' do
