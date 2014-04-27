@@ -9,7 +9,7 @@
           $('.search-choice > a').css({'display':'none'});
           $('#emergencyTable').show();
         });
-        
+
       %thead
         %tr
           %th Username
@@ -17,8 +17,9 @@
           %th Level
       %tbody{:style => "cursor:pointer;"}
         %tr
-          %td TheOne
-          %td 
+          %td
+            %span.lead.text-success Hary
+          %td
             %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -32,7 +33,7 @@
             %img{:src=>"/img/yoda.jpg"}
         %tr
           %td Twitty
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills1' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -45,8 +46,8 @@
           %td
             %img{:src=>"/img/yoda.jpg"}
         %tr
-          %td FmiHacker
-          %td 
+          %td Ivan
+          %td
             %select{ :name => "skills", :id =>'skills3' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -58,9 +59,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/yoda.jpg"}
-        %tr  
+        %tr
           %td Kerezov
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills4' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -73,9 +74,9 @@
           %td
             %img{:src=>"/img/gandalf.jpg"}
 
-        %tr  
+        %tr
           %td AdMiRal
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills5' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -86,10 +87,10 @@
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
           %td
-            %img{:src=>"/img/gandalf.jpg"} 
-        %tr  
+            %img{:src=>"/img/gandalf.jpg"}
+        %tr
           %td Sweety
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills6' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -101,9 +102,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/gandalf.jpg"}
-        %tr  
+        %tr
           %td IvanPetroff
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills7' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -115,9 +116,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/waldo.jpg"}
-        %tr  
+        %tr
           %td Voltron
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills8' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -129,9 +130,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/waldo.jpg"}
-        %tr  
+        %tr
           %td TheShamanKing
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills9' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -143,9 +144,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/waldo.jpg"}
-        %tr  
+        %tr
           %td Slash
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills10' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -157,9 +158,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/shrek.jpg"}
-        %tr  
+        %tr
           %td TupaLupa
-          %td 
+          %td
             %select{ :name => "skills", :id =>'skills11' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -171,9 +172,9 @@
               $('.chzn-choices').css({'border':'none'})
           %td
             %img{:src=>"/img/shrek.jpg"}
-        %tr  
-          %td Harry
-          %td 
+        %tr
+          %td Shrek
+          %td
             %select{ :name => "skills", :id =>'skills12' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
               - if @items
                 - @items.each do |element|
@@ -183,5 +184,5 @@
               $(".chosen-select").attr('data-placeholder',"").chosen();
               $('.search-field input').height('20');
               $('.chzn-choices').css({'border':'none'})
-          %td  
+          %td
             %img{:src=>"/img/shrek.jpg"}
