@@ -10,7 +10,7 @@ module HelpMeOut
 		  end
 
 		  @myprofile = current_member.id == @profile_user.id
-		  @items = Field.all
+		  @ranks = Rank.find(id: @profile_user[:rank_id])
 	  	haml :profile
 		end
 
