@@ -62,6 +62,7 @@ module HelpMeOut
     end
 
     get '/show/:question_id' do
+      session["questionId"] = params[:question_id]
       @question = Question.find(id: params[:question_id])
       @answers = Answer.where(question: @question).all
       haml :show_question
