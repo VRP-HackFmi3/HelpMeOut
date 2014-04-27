@@ -1,0 +1,13 @@
+%h1= @question.title
+
+%p
+  A question from
+  = @question.user.username
+
+- if @answers.size != 0
+  %h2 Answers:
+  - @answers.each do |answer|
+    %p= answer.text
+    %p= answer.user.username
+- else
+  %p There are no answers yet

@@ -3,14 +3,13 @@ require_relative '../domain/chat/channel_manager.rb'
 
 module HelpMeOut
   class ChannelController < HelpMeOutBase
-    before '/*' do
-      protected!
-    end
+
 
     set :server, 'thin'
     set :sockets, []
 
     get '/channel' do
+      puts ":( :( :("
       if !request.websocket?
         puts "failed request to get channel as http"
       else

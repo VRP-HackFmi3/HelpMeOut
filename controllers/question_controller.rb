@@ -58,6 +58,12 @@ module HelpMeOut
       haml :tryquestion
     end
 
+    get '/show/:question_id' do
+      @question = Question.find(id: params[:question_id])
+      @answers = Answer.where(question: @question).all
+      haml :show_question
+    end
+
     helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers, ViewHelpers
   end
 end

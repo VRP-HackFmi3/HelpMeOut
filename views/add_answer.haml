@@ -1,6 +1,7 @@
 %div.alert-success.text-center
   %h1 Add Answer
-%form{ :method => "post", :role => "form", :action=>"/answer/add" }
+- path = '/answer/add/' + @question.id.to_s
+%form{ :method => "post", :role => "form", :action => path }
   .row
     %div.offset4
       %label Answer with...
