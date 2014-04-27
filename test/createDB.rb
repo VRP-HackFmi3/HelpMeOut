@@ -25,12 +25,13 @@ f8 = Field.create(name:"Birds")
 f9 = Field.create(name:"Music")
 f10 = Field.create(name:"Art")
 f11 = Field.create(name:"Other")
+f12 = Field.create(name:"IT")
 
 
-u1 = User.create(username:"Drago",rank:r1,password:"Parola",first_name:"Drago",last_name:"Chaq",email:"mail@mail.com",xp:0)
-u2 = User.create(username:"Ivan",rank:r1,password:"Parola",first_name:"Dragon",last_name:"Bush",email:"124mail@mail.com",xp:12)
-u3 = User.create(username:"Negur",rank:r2,password:"Parola",first_name:"Orel",last_name:"Petrov",email:"mai4124l@mail.com",xp:160)
-u4 = User.create(username:"Pacha",rank:r4,password:"Parola",first_name:"Kozi",last_name:"Krak",email:"maittl@mabil.com",xp:1024)
+u1 = User.create(username:"Drago",rank:r1,password:"Parola",first_name:"Drago",last_name:"Petrov",email:"mail@mail.com",xp:0)
+u2 = User.create(username:"Ivan",rank:r1,password:"Parola",first_name:"Ivan",last_name:"Nikolov",email:"124mail@mail.com",xp:12)
+u3 = User.create(username:"Negur",rank:r2,password:"Parola",first_name:"Boris",last_name:"Jivkov",email:"mai4124l@mail.com",xp:160)
+u4 = User.create(username:"Yana",rank:r4,password:"Parola",first_name:"Yana",last_name:"Ivanova",email:"maittl@mabil.com",xp:1024)
 
 
 u1.add_interest(f1)
@@ -47,6 +48,7 @@ u4.add_interest(f3)
 u4.add_ability(f4)
 u4.add_ability(f1)
 
-q1 = Question.create(field:f1,user:u1,answer_type:at1,title:"Kontrolno po matematika",text:"Imam kontrolno po matematika , 1 + 1 = 2 ?",status:0,time_created:Time.now,time_expires:Time.now + 3660)
+q1 = Question.create(field:f1,user:u1,answer_type:at1,title:"Kontrolno po matematika",text:"Molq pomognete: 1 + 1 = 2 ?",status:0,time_created:Time.now,time_expires:Time.now + 3660)
 q2 = Question.create(field:f2,user:u2,answer_type:at2,title:"IZPIT PO GEOMETRIQ", text:"Sled 2h imam izpit po geometriq, no ne znaq kakvo e minimalna transferzala. HELP!!", status:0, time_created:Time.now, time_expires:Time.now + 120)
 q3 = Question.create(field:f2,user:u3,answer_type:at3,title:"Ne razbiram nishto ot veroqtnosti i statistika", text:"Za 3ta godina me kusat po ViS, nqkoi moje li da mi obqsni zadachite", status:0, time_created:Time.now, time_expires:Time.now+ 1000000)
+q4 = Question.create(field:f5, user:u2, answer_type:at2, title:"Помощ при избор на фитес програма", text: "Искам да започна да тренирам сериозно, може ли някой да ми даде съвет за добра фитес програма?", status: 0, time_created: Time.now, time_expires:Time.now + 30)

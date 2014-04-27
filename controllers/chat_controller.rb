@@ -8,6 +8,6 @@ module HelpMeOut
   		haml :chat
   	end
 
-    helpers AuthenticationHelpers
+    helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers, ViewHelpers
   end
 end

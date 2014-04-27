@@ -167,7 +167,7 @@
           - if @my_questions
             - @my_questions.each do |question|
               %tr
-                %td{:style=>"color:#00FF00;font-size:200%"}
+                %td{:style=>"color:#00FF00;"}
                   %a= question.user.username
                   - path = '/question/show/' + question.id.to_s
                   %a{href: path}= question.title
