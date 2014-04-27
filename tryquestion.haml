@@ -1,16 +1,10 @@
 .text-center
   %h1 Question
-  - unless @questions.empty?
-    .spacer
-      %table.table.table-condensed
-      - @questions.each do |question|
-        - if question[:id] == 1
-          - field =find_field(question[:id])
-          .row
-            %div.offset4
-              %label Title:
-              %p= question[:title]
-              %label Subject:
-              %p= question[:text]
-              %label Category:
-              %p= field[:name]
+  .row
+    %div.offset4
+      %label Title:
+      %p= question[:title]
+      %label Subject:
+      %p= question[:text]
+      %label Category:
+      %p= field[:name]

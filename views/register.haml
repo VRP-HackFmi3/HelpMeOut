@@ -1,35 +1,49 @@
-.text-center
-  %h1 Register
-
-  = show_error_message
-
+.modal-header
+  .text-center
+    %h2 Registration
+    = show_error_message
+.modal-body
   %form{ :method => "post", :role => "form" }
     .row
-      %label.span4.offset3{ :for => "username" } Username:
-      .span4.offset3
-        %input.form-control{ :id => "username", :type => "text", :name => "username", :style=>"height:30px"}
-    .row
-      %label.span4.offset3{ :for => "email" } Email:
-      .span4.offset3
-        %input.form-control{ :id => "email", :type => "email", :name => "email" ,:style=>"height:30px"}
-    .row
-      %label.span4.offset3 Password:
-      .span4.offset3
-        %input.form-control{ :type => "password", :name => "password", :style=>"height:30px"}
-    .row
-      %label.span4.offset3 Repeat password:
-      .span4.offset3
-        %input.form-control{ :type => "password", :name => "repeated_password", :style=>"height:30px" }
-      .row
-      %label.span4.offset3 Select Your Skills
-      .span4.offset3
-        %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
-          - if @items
-            - @items.each do |element|
-              %option= element[:name]
-        :javascript
-          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-          $('.search-field input').height('20');
-    .row{:style=>'margin-top:20px'}
-      %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit
+      .span3.offset1
+        .row-fluid
+          %br
+          %label{ :for => "username" } Username:
+          %input.form-control{ :id => "username", :type => "text", :name => "username", :style=>"height:30px"}
+        .row-fluid
+          %br
+          %label Password:
+          %input.form-control{ :type => "password", :name => "password", :style=>"height:30px"}
+        .row-fluid
+          %br
+          %label{ :for => "email" } Email:
+          %input.form-control{ :id => "email", :type => "email", :name => "email" ,:style=>"height:30px"}
+      .span3.offset4
+        .row-fluid
+          %br
+          %label Repeat password:
+          %input.form-control{ :type => "password", :name => "repeated_password", :style=>"height:30px" }
+        .row-fluid
+          %br
+          %label Select your skills
+          %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
+            - if @items
+              - @items.each do |element|
+                %option= element[:name]
+          :javascript
+            $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+            $('.search-field input').height('20');
+        .row-fluid
+          %br
+          %label Select your interests
+          %select{ :name => "interests", :id =>'interest' , :multiple=>true, :class=>"chosen-interest", :style=>"height:30px"}
+            - if @items
+              - @items.each do |element|
+                %option= element[:name]
+          :javascript
+            $(".chosen-interest").attr('data-placeholder',"Select your interests").chosen();
+            $('.search-field input').height('20');
+    .row.text-center{:style=>'margin-top:20px'}
+      %br
+      %button.btn.btn-large{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit
 

@@ -18,7 +18,7 @@
   .row
     %div.offset4
       %label Select your skills
-      %select{ :name => "skills", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
+      %select{ :name => "skills[]", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
         - if @items
           - @items.each do |element|
             %option= element[:name]
@@ -29,6 +29,10 @@
     %div.offset4
       %label Explane your problem:
       %textarea{:id=>'text', :name=>'text'}
+  .row
+    %div.offset4
+      %label
+        %input{:type=>"checkbox", :name=>"check"} Yes/No question
   .row
     %div.offset4
       %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

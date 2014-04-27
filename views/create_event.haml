@@ -18,7 +18,7 @@
   .row
     %div.offset4
       %label Select your skills
-      %select{ :name => "skills", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
+      %select{ :name => "skills[]", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
         %option Math
         %option Swining
         %option Rammstein
@@ -27,7 +27,7 @@
       $('.search-field input').height('20');
   .row{style:"margin-top:10px"}
     %div.offset4
-      %label Explane your problem:
+      %label Explain your problem:
       %textarea{:id=>'comment', :name=>'comment'}
   .row
     %div.offset4

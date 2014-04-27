@@ -21,6 +21,7 @@ module HelpMeOut
       created = Time.now.to_i
       expires = date_string_to_int(params[:time])
       field_id = Field.find(name: params[:skills]).id.to_i
+      yes_no = params[:check] == "on" ? 1 : 0
 
       Question.create(
         title: params[:title],
@@ -30,7 +31,8 @@ module HelpMeOut
         status: false,
         time_created: created,
         time_expires: expires,
-        field_id: field_id
+        field_id: field_id,
+        type: yes_no,
       )
 
       redirect '/question/allquestions'
@@ -51,11 +53,26 @@ module HelpMeOut
     end
 
     get '/tryquestion' do
-      def find_field(id)
-        return Field.find(id:id)
-      end
-      @questions = Question.order(:time_expires).limit(1)
+      # def find_field(id)
+      #   return Field.find(id:paid)
+      # end
+
+      @question = Questions.first(id:params[:id]);
       haml :tryquestion
+    end
+
+    get '/show/:question_id' do
+      @question = Question.find(id: params[:question_id])
+      @answers = Answer.where(question: @question).all
+      haml :show_question
+    end
+
+    get '/nextday' do
+      next_day = DateTime.now.to_date + 1
+      questions = Question.all
+      questions = questions.sort_by { |question| question.time_expires.to_date }
+      @questions = questions.select { |question| question.time_expires.to_date == next_day }
+      haml :home
     end
 
     helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers, ViewHelpers

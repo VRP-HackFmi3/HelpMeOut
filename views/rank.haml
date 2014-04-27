@@ -1,182 +1,187 @@
-%table.tablesorter{:id =>"emergencyTable", :style=>'display:none'}
-  :javascript
-    $(document).ready(function(){
-      $('.search-choice > a').css({'display':'none'});
-      $('#emergencyTable').show();
-    });
-    
-  %thead
-    %tr
-      %th Title:
-      %th Best Category
-      %th Level
-  %tbody{:style => "cursor:pointer;"}
-    %tr
-      %td The One
-      %td 
-        %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills").val($("#skills option").eq(2).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/skanev.jpg"}
-    %tr
-      %td Twitty
-      %td 
-        %select{ :name => "skills", :id =>'skills1' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills1").val($("#skills1 option").first().val());
-          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/skanev.jpg"}
-    %tr
-      %td FmiHacker
-      %td 
-        %select{ :name => "skills", :id =>'skills3' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills3").val($("#skills3 option").eq(3).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/yoda.jpg"}
-    %tr  
-      %td Kerezov
-      %td 
-        %select{ :name => "skills", :id =>'skills4' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills4").val($("#skills4 option").eq(1).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/yoda.jpg"}
+.modal-header
+  %h2.text-center
+    Santa little helpers
+.modal-body
+  .row.spqn8.offset1
+    %table.tablesorter{:id =>"emergencyTable", :style=>'display:none'}
+      :javascript
+        $(document).ready(function(){
+          $('.search-choice > a').css({'display':'none'});
+          $('#emergencyTable').show();
+        });
+        
+      %thead
+        %tr
+          %th Title:
+          %th Best Category
+          %th Level
+      %tbody{:style => "cursor:pointer;"}
+        %tr
+          %td The One
+          %td 
+            %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills").val($("#skills option").eq(2).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/skanev.jpg"}
+        %tr
+          %td Twitty
+          %td 
+            %select{ :name => "skills", :id =>'skills1' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills1").val($("#skills1 option").first().val());
+              $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/skanev.jpg"}
+        %tr
+          %td FmiHacker
+          %td 
+            %select{ :name => "skills", :id =>'skills3' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills3").val($("#skills3 option").eq(3).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/yoda.jpg"}
+        %tr  
+          %td Kerezov
+          %td 
+            %select{ :name => "skills", :id =>'skills4' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills4").val($("#skills4 option").eq(1).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/yoda.jpg"}
 
-    %tr  
-      %td AdMiRal
-      %td 
-        %select{ :name => "skills", :id =>'skills5' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills5").val($("#skills5 option").eq(0).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/yoda.jpg"} 
-    %tr  
-      %td Sweety
-      %td 
-        %select{ :name => "skills", :id =>'skills6' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills6").val($("#skills6 option").eq(9).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/yoda.jpg"}
-    %tr  
-      %td Ivan Petroff
-      %td 
-        %select{ :name => "skills", :id =>'skills7' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills7").val($("#skills7 option").eq(0).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/gandalf.jpg"}
-    %tr  
-      %td Voltron
-      %td 
-        %select{ :name => "skills", :id =>'skills8' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills8").val($("#skills8 option").eq(7).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/gandalf.jpg"}
-    %tr  
-      %td TheShamanKing
-      %td 
-        %select{ :name => "skills", :id =>'skills9' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills9").val($("#skills9 option").eq(5).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/gandalf.jpg"}
-    %tr  
-      %td Slash
-      %td 
-        %select{ :name => "skills", :id =>'skills10' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills10").val($("#skills10 option").eq(0).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/shrek.jpg"}
-    %tr  
-      %td TupaLupa
-      %td 
-        %select{ :name => "skills", :id =>'skills11' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills11").val($("#skills11 option").eq(10).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td
-        %img{:src=>"/img/shrek.jpg"}
-    %tr  
-      %td Harry
-      %td 
-        %select{ :name => "skills", :id =>'skills12' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-          - if @items
-            - @items.each do |element|
-              %option{:id=>element[:id]}= element[:name]
-        :javascript
-          $("#skills12").val($("#skills12 option").eq(7).val());
-          $(".chosen-select").attr('data-placeholder',"").chosen();
-          $('.search-field input').height('20');
-          $('.chzn-choices').css({'border':'none'})
-      %td  
-        %img{:src=>"/img/shrek.jpg"}
+        %tr  
+          %td AdMiRal
+          %td 
+            %select{ :name => "skills", :id =>'skills5' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills5").val($("#skills5 option").eq(0).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/yoda.jpg"} 
+        %tr  
+          %td Sweety
+          %td 
+            %select{ :name => "skills", :id =>'skills6' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills6").val($("#skills6 option").eq(9).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/yoda.jpg"}
+        %tr  
+          %td Ivan Petroff
+          %td 
+            %select{ :name => "skills", :id =>'skills7' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills7").val($("#skills7 option").eq(0).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/gandalf.jpg"}
+        %tr  
+          %td Voltron
+          %td 
+            %select{ :name => "skills", :id =>'skills8' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills8").val($("#skills8 option").eq(7).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/gandalf.jpg"}
+        %tr  
+          %td TheShamanKing
+          %td 
+            %select{ :name => "skills", :id =>'skills9' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills9").val($("#skills9 option").eq(5).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/gandalf.jpg"}
+        %tr  
+          %td Slash
+          %td 
+            %select{ :name => "skills", :id =>'skills10' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills10").val($("#skills10 option").eq(0).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/shrek.jpg"}
+        %tr  
+          %td TupaLupa
+          %td 
+            %select{ :name => "skills", :id =>'skills11' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills11").val($("#skills11 option").eq(10).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td
+            %img{:src=>"/img/shrek.jpg"}
+        %tr  
+          %td Harry
+          %td 
+            %select{ :name => "skills", :id =>'skills12' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+              - if @items
+                - @items.each do |element|
+                  %option{:id=>element[:id]}= element[:name]
+            :javascript
+              $("#skills12").val($("#skills12 option").eq(7).val());
+              $(".chosen-select").attr('data-placeholder',"").chosen();
+              $('.search-field input').height('20');
+              $('.chzn-choices').css({'border':'none'})
+          %td  
+            %img{:src=>"/img/shrek.jpg"}

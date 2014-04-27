@@ -1,5 +1,6 @@
 module HelpMeOut
   class AuthenticationController < HelpMeOutBase
+   
     get '/register' do
       @items = Field.all
       haml :register
