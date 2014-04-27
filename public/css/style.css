@@ -266,10 +266,10 @@ transition:all .6s ease-in-out;
 }
 
 #customtextarea:hover {
-color:#000000;
 -moz-box-shadow:0px 0px 5px 5px #AFFC74;
 -webkit-box-shadow:0px 0px 5px 5px #AFFC74;
-box-shadow:0px 0px 5px 5px #AFFC74;
+box-shadow:0px 10px 10px 0px #AFFC74;
+>>>>>>> Stashed changes
 -moz-transition:all .6s ease;
 -webkit-transition:all .6s ease;
 -o-transition:all .6s ease;
