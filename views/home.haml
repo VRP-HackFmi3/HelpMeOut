@@ -31,7 +31,7 @@
           - if @time_out
             - @time_out.each do |question|
               %tr
-                %td{:style=>"color:#00FF00;font-size:100%"}
+                %td{:style=>"color:#00FF00;"}
                   %a= question.user.username
                   - path = '/question/show/' + question.id.to_s
                   %a{href: path}= question.title
@@ -88,7 +88,7 @@
           - if @tomorrow
             - @tomorrow.each do |question|
               %tr
-                %td{:style=>"color:#00FF00;font-size:200%"}
+                %td{:style=>"color:#00FF00;"}
                   %a= question.user.username
                   - path = '/question/show/' + question.id.to_s
                   %a{href: path}= question.title
@@ -123,7 +123,7 @@
         - if @yes_no
           - @yes_no.each do |question|
             %tr
-              %td{:style=>"color:#00FF00;font-size:200%"}
+              %td{:style=>"color:#00FF00;"}
                 #customtextarea
                   %div{style: "margin-left: 20px;"}
                     .row
