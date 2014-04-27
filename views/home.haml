@@ -31,10 +31,10 @@
           - if @time_out
             - @time_out.each do |question|
               %tr
-                %td{:style=>"color:#00FF00;"}
-                  %a= question.user.username
+                %td
                   - path = '/question/show/' + question.id.to_s
                   %a{href: path}= question.title
+                  %span{color: '#00ff00'}= '(by ' + question.user.username + ')'
                 %td
                   %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
                     %option{:id=>question.field_id}=find_field_name(question.field_id)
