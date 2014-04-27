@@ -173,7 +173,7 @@ body {
 #customtextarea {
 width:550px;
 max-width:550px;
-height:350px;
+height:70px;
 margin-top:10px;
 margin-bottom:10px;
 padding:15px;
@@ -182,7 +182,7 @@ font-style:normal;
 font-size:14px;
 line-height:110%;
 font-family:Verdana,Geneva,'DejaVu Sans',sans-serif;
-border:2px solid #000000;
+border:1px solid #000000;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 border-radius:10px;
@@ -195,10 +195,10 @@ transition:all .6s ease-in-out;
 }
 
 #customtextarea:hover {
-color:#FFFFFF;
--moz-box-shadow:0px 10px 10px 0px #AFFC74;
--webkit-box-shadow:0px 10px 10px 0px #AFFC74;
-box-shadow:0px 10px 10px 0px #AFFC74;
+color:#000000;
+-moz-box-shadow:0px 0px 5px 5px #AFFC74;
+-webkit-box-shadow:0px 0px 5px 5px #AFFC74;
+box-shadow:0px 0px 5px 5px #AFFC74;
 -moz-transition:all .6s ease;
 -webkit-transition:all .6s ease;
 -o-transition:all .6s ease;
