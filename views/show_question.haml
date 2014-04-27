@@ -1,34 +1,49 @@
-.modal-header.text-center	
-  %h1= @question.title
+.modal-header.text-center
+  .modal-header.alert-success.text-center
+    %h1= @question.title
   %h6
     A question from
     %div{:style=>'color:#00FFFF;cursor:pointer'}
       = @question.user.username
-.row{:style=>"margin-top:40px"}
-  %h2.text-center Answers:
-  .offset1#customtextarea
-    - if @answers.size != 0
-      - @answers.each do |answer|
-        .span6.text-center
-          .alert-info
-            = answer.text
-        .pull-right
-          An answer from
-          %div{:style=>'color:#00FFFF;cursor:pointer'}
-            = answer.user.username
-  
-    
-- if @answers.size != 0
-  %h2 Answers:
-  - @answers.each do |answer|
-    %p= answer.text
-    %p= answer.user.username
-- else
-  %p There are no answers yet
+    %p
+      = @question.text
+.modal-body
+  .row.span10.offset1
+    %h2.text-center Answers:
+    %table.table.table-striped.table-hover{:id =>"answerTable"}
+      - if @answers.size != 0
+        - @answers.each do |answer|
+          %tr.of
+            %td
+              #customtextarea
+                %div{style: "margin-left: 20px;"}
+                  .row.text-center
+                    = answer.text
+                  .row
+                    %div.pull-left
+                      .span.stars.s-3stars{"data-default" => 3}
+                    %div.pull-right
+                      Answered by: #{answer.user.username}
+      - else
+        %p There are no answers yet
 
-  %input{name: 'star1', type: 'radio', class: 'star'}
-  %input{name: 'star1', type: 'radio', class: 'star'}
-  %input{name: 'star1', type: 'radio', class: 'star'}
-  %input{name: 'star1', type: 'radio', class: 'star'}
-  %input{name: 'star1', type: 'radio', class: 'star'}
-
+.modal-header.alert-success.text-center
+  %h4 Add Answer
+  - path = '/answer/add/' + @question.id.to_s
+.modal-body
+  %form{ :method => "post", :role => "form", :action => path }
+    .row
+      %div.offset4
+        %label Answer with...
+        %a(href="/chat/chat")
+          A instant message conversation
+      :javascript
+        $(".chosen-select").attr('data-placeholder',"Select the type").chosen().remove();
+        $('.search-field input').height('20');
+    .row{style:"margin-top:10px"}
+      %div.offset4
+        %label Quick Answer::
+        %textarea{:id=>'text', :name=>'text'}
+    .row
+      %div.offset4
+        %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

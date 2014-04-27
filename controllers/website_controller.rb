@@ -1,5 +1,8 @@
 module HelpMeOut
   class WebsiteController < HelpMeOutBase
+    before '/*' do
+      protected!
+    end
 
     get '/' do
       if not user_logged?

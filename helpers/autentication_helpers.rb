@@ -17,7 +17,7 @@ module HelpMeOut
     end
 
     def protected!
-      halt 401, (haml :unauthorized) unless user_logged?
+      halt 401, (haml :index) unless user_logged?
     end
 
   end

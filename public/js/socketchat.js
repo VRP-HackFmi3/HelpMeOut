@@ -29,6 +29,17 @@
 	    		yurl = yurl.replace("watch?v=","embed/")
 	    		var y = '<iframe width="100%" src="'+yurl+'" frameborder="0" allowfullscreen></iframe>'
 	    		$("#linkAggregator").append(y);
+	    		var span = document.createElement("span");
+	    		var $span = $(span);
+	    		$span.addClass("stars");
+	    		$span.css("margin-top","5px");
+	    		$span.css("margin-bottom","5px")
+	    		$span.attr("data-default","3")
+
+	    		$("#linkAggregator").append($span)
+	    		$span.click(function(e){
+	    			$span.addClass("s-5");
+	    		})
 	    	}
 	    	else
 	    	{
