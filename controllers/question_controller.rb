@@ -5,6 +5,20 @@ module HelpMeOut
     end
 
     get '/' do
+      questions = Question.all
+      questions = questions.sort_by { |q| q.time_expires.to_time.to_i }
+        .select { |q| q.time_expires.to_time.to_i - Time.now.to_i > 0 }
+
+      @time_out = questions.take 10
+
+      next_day = DateTime.now.to_date + 1
+      @tomorrow = questions.select { |question| question.time_expires.to_date == next_day }
+
+      @yes_no = questions.select { |question| question.type == 1 }
+
+      @my_questions = Question.where(user: find_current_user).sort_by { |q| q.time_created.to_time.to_i }
+
+      haml :home
       #take from query string
       #try to find question
       #see if current user is user is master of question
