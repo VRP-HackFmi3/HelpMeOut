@@ -11,12 +11,12 @@
       .row
         %br
         %strong Rank:
-        Master
+        %p= @ranks[:name]
         %img.pull-right{src: "/img/yoda.jpg"}
       .row
         %br
         %strong XP:
-        60
+        %p= @profile_user[:xp]
         .progress
           %div.bar{style: "width: 60%;"}
       .row
@@ -31,12 +31,13 @@
       .row
         %br
         %strong Skills:
-        asd ads sdsd
+        - @profile_user.abilities.each do |ability|
+          %p= ability[:name]
       .row
         %br
         %strong Interests:
-        fds dfdf dffd
+        - @profile_user.interests.each do |interest|
+          %p= interest[:name]
 .modal-footer
   - if @myprofile
     %a.btn.btn-large.pull-right{href: "/profile/#{@profile_user.id}/edit"}Edit profile
-
