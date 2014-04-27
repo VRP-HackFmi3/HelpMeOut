@@ -114,3 +114,72 @@ body {
 	position:relative;
 	top:1px;
 }
+
+.time_container{
+	width:150px;
+}
+
+.time_container .time_bar{
+	width:146px;
+	margin:2px;
+	margin-top:0px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius:15px;
+	border:1px solid gray;
+	transition:all 1s;
+}
+
+.time_bar[data-fill="10"]{
+	background: #B4BBBB;
+	width:132px;
+}
+
+.time_bar[data-fill="9"]{
+	background: #BBC4C4;
+	width:118px;
+}
+
+.time_bar[data-fill="8"]{
+	background: #C29D9D;
+	width:104px;
+}
+
+.time_bar[data-fill="7"]{
+	background: #C98686;
+	width:90px;
+}
+
+.time_bar[data-fill="6"]{
+	background: #D07F7F;
+	width:76px;
+}
+
+.time_bar[data-fill="5"]{
+	background: #D76868;
+	width:62px;
+}
+
+.time_bar[data-fill="4"]{
+	background: #DE5151;
+	width:48px;
+}
+
+.time_bar[data-fill="3"]{
+	background: #E54A4A;
+	width:34px;
+}
+
+.time_bar[data-fill="2"]{
+	background: #EC3333;
+	width:26px;
+}
+
+.time_bar[data-fill="1"]{
+	background: #F32C2C;
+	width:20px;
+}
+
+.time_bar[data-fill="0"]{
+	background: #FF1515;
+	width:20px;
+}
