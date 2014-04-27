@@ -1,10 +1,3 @@
--# - if @questions
--#   - @questions.each do |question|
--#     %p= question.title
--#     %p= question.field_id
--#     %p= find_field_name(question.field_id)
--#     %p= question.time_expires
--#     %p= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
 .modal-header.text-center
   %h2 Help center
 .modal-body
@@ -150,7 +143,6 @@
                       %button.btn.btn-danger.pull-right
                         %i.icon-thumbs-down
                   %div{style: 'clear: both'}
-
     .row.span8.my.hideable{:style=>'display:none'}
       %h1 My Questions
       %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
