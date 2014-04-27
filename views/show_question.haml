@@ -3,7 +3,7 @@
     %h1= @question.title
   %h6
     A question from
-    %div{:style=>'color:#00FFFF;cursor:pointer'}
+    %div
       = @question.user.username
     %p
       = @question.text
