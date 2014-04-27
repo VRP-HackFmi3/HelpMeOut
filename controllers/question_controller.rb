@@ -21,6 +21,7 @@ module HelpMeOut
       created = Time.now.to_i
       expires = date_string_to_int(params[:time])
       field_id = Field.find(name: params[:skills]).id.to_i
+      yes_no = params[:check] == "on" ? 1 : 0
 
       Question.create(
         title: params[:title],
@@ -30,7 +31,8 @@ module HelpMeOut
         status: false,
         time_created: created,
         time_expires: expires,
-        field_id: field_id
+        field_id: field_id,
+        type: yes_no,
       )
 
       redirect '/question/allquestions'
