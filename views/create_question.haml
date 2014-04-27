@@ -1,38 +1,35 @@
-%div.alert-success.text-center
-  %h1 Create Event
-%form{ :method => "post", :role => "form", :action=>"/question/add" }
-  .row
-    %div.offset4
-      %label Title:
-      %input{:type =>"text", :name=>'title', :id=>"title", :style=>"height:30px"}
-  .row
-    %div.offset4
-      %div
-        %div.input-append{:id=>"dateTime"}
-          %label I need this before date:
-          %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"dd/MM/yyyy hh:mm:ss",:style=>"height:30px"}
-          %span.add-on
-            %i{:data=>{"time-icon"=>"icon-time", "date-icon"=>"icon-calendar"}}
-      :javascript
-        $('#dateTime').datetimepicker();
-  .row
-    %div.offset4
-      %label Select your skills
-      %select{ :name => "skills[]", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
-        - if @items
-          - @items.each do |element|
-            %option= element[:name]
-    :javascript
-      $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-      $('.search-field input').height('20');
-  .row{style:"margin-top:10px"}
-    %div.offset4
-      %label Explane your problem:
-      %textarea{:id=>'text', :name=>'text'}
-  .row
-    %div.offset4
-      %label
+.modal-header.text-center
+  %h1 Ask a question
+.modal-body
+  %form{ :method => "post", :role => "form", :action=>"/question/add" }
+    .row
+      .offset4
+        %label Title:
+        %input{:type =>"text", :name=>'title', :id=>"title", :style=>"height:30px"}
+
+        %div
+          %div.input-append{:id=>"dateTime"}
+            %label I need this before:
+            %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"dd/MM/yyyy hh:mm:ss",:style=>"height:30px"}
+            %span.add-on
+              %i{:data=>{"time-icon"=>"icon-time", "date-icon"=>"icon-calendar"}}
+        :javascript
+          $('#dateTime').datetimepicker();
+
+        %label Select your skills
+        %select{ :name => "skills[]", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
+          - if @items
+            - @items.each do |element|
+              %option= element[:name]
+        :javascript
+          $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+          $('.search-field input').height('20');
+    .row{style:"margin-top:10px"}
+      %div.offset4
+        %label Explane your problem:
+        %textarea{:id=>'text', :name=>'text'}
+        %label
         %input{:type=>"checkbox", :name=>"check"} Yes/No question
-  .row
-    %div.offset4
-      %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit
+    .row
+      %div.offset4
+        %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

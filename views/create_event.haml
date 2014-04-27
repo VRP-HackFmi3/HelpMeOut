@@ -1,34 +1,35 @@
-%div.alert-success.text-center
-  %h1 Create Event
-%form{ :method => "post", :role => "form", :action=>"/questions/add" }
-  .row
-    %div.offset4
-      %label Title:
-      %input{:type =>"text", :name=>'title', :id=>"title", :style=>"height:30px"}
-  .row
-    %div.offset4
-      %div
-        %div.input-append{:id=>"dateTime"}
-          %label I need this before date:
-          %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"MM/dd/yyyy HH:mm:ss PP",:style=>"height:30px"}
-          %span.add-on
-            %i{:data=>{"time-icon"=>"icon-time", "date-icon"=>"icon-calendar"}}
+.modal-header.alert-success.text-center
+  %h1 Ask a question
+.modal-body
+  %form{ :method => "post", :role => "form", :action=>"/questions/add" }
+    .row
+      %div.offset4
+        %label Title:
+        %input{:type =>"text", :name=>'title', :id=>"title", :style=>"height:30px"}
+    .row
+      %div.offset4
+        %div
+          %div.input-append{:id=>"dateTime"}
+            %label I need this before date:
+            %input{:type =>"text", :name=>'time', :id=>"dateTime", "data-format"=>"MM/dd/yyyy HH:mm:ss PP",:style=>"height:30px"}
+            %span.add-on
+              %i{:data=>{"time-icon"=>"icon-time", "date-icon"=>"icon-calendar"}}
+        :javascript
+          $('#dateTime').datetimepicker();
+    .row
+      %div.offset4
+        %label Select your skills
+        %select{ :name => "skills[]", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
+          %option Math
+          %option Swining
+          %option Rammstein
       :javascript
-        $('#dateTime').datetimepicker();
-  .row
-    %div.offset4
-      %label Select your skills
-      %select{ :name => "skills[]", :id =>'skills', :class=>"chosen-select", :style=>"height:30px"}
-        %option Math
-        %option Swining
-        %option Rammstein
-    :javascript
-      $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-      $('.search-field input').height('20');
-  .row{style:"margin-top:10px"}
-    %div.offset4
-      %label Explain your problem:
-      %textarea{:id=>'comment', :name=>'comment'}
-  .row
-    %div.offset4
-      %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit
+        $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+        $('.search-field input').height('20');
+    .row{style:"margin-top:10px"}
+      %div.offset4
+        %label Explain your problem:
+        %textarea{:id=>'comment', :name=>'comment'}
+    .row
+      %div.offset4
+        %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

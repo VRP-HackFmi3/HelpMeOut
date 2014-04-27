@@ -4,24 +4,22 @@
     A question from
     %div{:style=>'color:#00FFFF;cursor:pointer'}
       = @question.user.username
-.row{:style=>"margin-top:40px"}
-  %h2.text-center Answers:
-  .offset1#customtextarea
-    - if @answers.size != 0
-      - @answers.each do |answer|
-        .span6.text-center
-          .alert-info
-            = answer.text
-        .pull-right
-          An answer from
-          %div{:style=>'color:#00FFFF;cursor:pointer'}
-            = answer.user.username
-  
-    
-- if @answers.size != 0
-  %h2 Answers:
-  - @answers.each do |answer|
-    %p= answer.text
-    %p= answer.user.username
-- else
-  %p There are no answers yet
+.modal-body
+  .row.span10.offset1
+    %h2.text-center Answers:
+    %table.table.table-striped.table-hover{:id =>"answerTable"}
+      - if @answers.size != 0
+        - @answers.each do |answer|
+          %tr.of
+            %td
+              #customtextarea
+                %div{style: "margin-left: 20px;"}
+                  .row.text-center
+                    = answer.text
+                  .row
+                    %div.pull-left
+                      .span.stars.s-3stars{"data-default" => 3}
+                    %div.pull-right
+                      Answered by: #{answer.user.username}
+      - else
+        %p There are no answers yet
