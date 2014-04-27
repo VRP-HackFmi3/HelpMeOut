@@ -75,67 +75,67 @@
       });
 
     %a{href: '/question/add', style:"margin-left:22px"} Add a question
-    .row.span8.tommorow.hideable
-      %h1 Tomorrow
-      %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
-        %thead
-          %tr
-            %th Title
-            %th Category
-            %th Time Left
-        %tbody{:style => "cursor:pointer"}
-          - if @tomorrow
-            - @tomorrow.each do |question|
-              %tr
-                %td{:style=>"color:#00FF00;font-size:200%"}
-                  %a= question.user.username
-                  - path = '/question/show/' + question.id.to_s
-                  %a{href: path}= question.title
-                %td
-                  %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-                    %option{:id=>question.field_id}=find_field_name(question.field_id)
-                  :javascript
-                    $("#skills_#{question.id.to_s}").val($("#skills_#{question.id.to_s} option").first().val())
-                    $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-                    $('.search-field input').height('20');
-                    $('.chzn-choices').css({'border':'none'})
-                %td= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
-                %td
-                  - link = '/answer/add/' + question.id.to_s
-                  %a{href: link} Add answer
-    .row.span8.questions.hideable
-    .row.span8.my.hideable
-      %h1 My Questions
-      %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
-        %thead
-          %tr
-            %th Title
-            %th Category
-            %th Time Left
-        %tbody{:style => "cursor:pointer"}
-          - if @my_questions
-            - @my_questions.each do |question|
-              %tr
-                %td{:style=>"color:#00FF00;font-size:200%"}
-                  %a= question.user.username
-                  - path = '/question/show/' + question.id.to_s
-                  %a{href: path}= question.title
-                %td
-                  %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
-                    %option{:id=>question.field_id}=find_field_name(question.field_id)
-                  :javascript
-                    $("#skills_#{question.id.to_s}").val($("#skills_#{question.id.to_s} option").first().val())
-                    $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-                    $('.search-field input').height('20');
-                    $('.chzn-choices').css({'border':'none'})
-                %td
-                  -if question.time_expires.to_time.to_i - Time.now.to_i < 0
-                    Expired
-                  - else
-                    = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
-                %td
-                  - link = '/answer/add/' + question.id.to_s
-                  %a{href: link} Add answer
+  .row.span8.tommorow.hideable{:style=>"display:none"}
+    %h1 Tomorrow
+    %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
+      %thead
+        %tr
+          %th Title
+          %th Category
+          %th Time Left
+      %tbody{:style => "cursor:pointer"}
+        - if @tomorrow
+          - @tomorrow.each do |question|
+            %tr
+              %td{:style=>"color:#00FF00;font-size:200%"}
+                %a= question.user.username
+                - path = '/question/show/' + question.id.to_s
+                %a{href: path}= question.title
+              %td
+                %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+                  %option{:id=>question.field_id}=find_field_name(question.field_id)
+                :javascript
+                  $("#skills_#{question.id.to_s}").val($("#skills_#{question.id.to_s} option").first().val())
+                  $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+                  $('.search-field input').height('20');
+                  $('.chzn-choices').css({'border':'none'})
+              %td= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+              %td
+                - link = '/answer/add/' + question.id.to_s
+                %a{href: link} Add answer
+  .row.span8.questions.hideable{:style=>"display:none"}
+  .row.span8.my.hideable{:style=>"display:none"}
+    %h1 My Questions
+    %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
+      %thead
+        %tr
+          %th Title
+          %th Category
+          %th Time Left
+      %tbody{:style => "cursor:pointer"}
+        - if @my_questions
+          - @my_questions.each do |question|
+            %tr
+              %td{:style=>"color:#00FF00;font-size:200%"}
+                %a= question.user.username
+                - path = '/question/show/' + question.id.to_s
+                %a{href: path}= question.title
+              %td
+                %select{ :name => "skills", :id =>'skills_' + question.id.to_s, :multiple=>true, :class=>"chosen-select", :style=>"height:30px", :readonly =>true, :disabled=>true}
+                  %option{:id=>question.field_id}=find_field_name(question.field_id)
+                :javascript
+                  $("#skills_#{question.id.to_s}").val($("#skills_#{question.id.to_s} option").first().val())
+                  $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+                  $('.search-field input').height('20');
+                  $('.chzn-choices').css({'border':'none'})
+              %td
+                -if question.time_expires.to_time.to_i - Time.now.to_i < 0
+                  Expired
+                - else
+                  = (question.time_expires.to_time.to_i - Time.now.to_i) / 60
+              %td
+                - link = '/answer/add/' + question.id.to_s
+                %a{href: link} Add answer
 
     %div(style="width:150px;height:150px")
 
