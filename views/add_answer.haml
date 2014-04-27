@@ -1,19 +1,20 @@
-%div.alert-success.text-center
+.modal-header.alert-success.text-center
   %h1 Add Answer
-- path = '/answer/add/' + @question.id.to_s
-%form{ :method => "post", :role => "form", :action => path }
-  .row
-    %div.offset4
-      %label Answer with...
-      %a(href="/chat/chat")
-        A quick message conversation
-    :javascript
-      $(".chosen-select").attr('data-placeholder',"Select the type").chosen().remove();
-      $('.search-field input').height('20');
-  .row{style:"margin-top:10px"}
-    %div.offset4
-      %label Quick Answer::
-      %textarea{:id=>'text', :name=>'text'}
-  .row
-    %div.offset4
-      %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit
+  - path = '/answer/add/' + @question.id.to_s
+.modal-body
+  %form{ :method => "post", :role => "form", :action => path }
+    .row
+      %div.offset4
+        %label Answer with...
+        %a(href="/chat/chat")
+          A quick message conversation
+      :javascript
+        $(".chosen-select").attr('data-placeholder',"Select the type").chosen().remove();
+        $('.search-field input').height('20');
+    .row{style:"margin-top:10px"}
+      %div.offset4
+        %label Quick Answer::
+        %textarea{:id=>'text', :name=>'text'}
+    .row
+      %div.offset4
+        %button.btn.btn-default{ :type => "submit",  :class=>'btn bnt-large  btn-success'} Submit

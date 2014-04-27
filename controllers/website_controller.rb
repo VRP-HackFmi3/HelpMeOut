@@ -7,7 +7,7 @@ module HelpMeOut
         haml :index
       else
         @items = Field.all
-        redirect '/question/allquestions'
+        redirect '/helpcenter'
       end
     end    
 
@@ -15,10 +15,17 @@ module HelpMeOut
       @items = Field.all
       haml :rank
     end
-    
+ 
     get '/achievements' do
       haml :achievements
     end
-    helpers AuthenticationHelpers
+
+    get '/helpcenter' do
+      questions = Question.all
+      @questions = questions.sort_by { |question| question.time_expires.to_time.to_i }
+      haml :home
+    end
+
+    helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers, ViewHelpers
   end
 end

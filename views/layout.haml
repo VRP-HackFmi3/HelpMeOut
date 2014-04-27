@@ -1,4 +1,3 @@
-
 %html
   %head
     %meta(charset="utf-8")
@@ -22,21 +21,24 @@
       .navbar-static-top
         .navbar-header
           %ul.nav.navbar-nav
-            %li.active
-              %a{href: "/question/allquestions"}Home
             %li
-              %a{href: "/"}Play
+              %a{href: "/"}Home
+            - if user_logged?
+              %li
+                %a{href: "/question/allquestions"}Questions
+              %li
+                %a{href: "/ranking"}Ranking
             %li
-              %a{href: "/"}About
+              %a{href: "/about"}About
           %ul.nav.navbar-nav.pull-right
             - if user_logged?
               %li.right-spacer.dropdown
                 %a.dropdown-toggle{"data-toggle" => "dropdown"}
-                  Profile
+                  = find_current_user.username
                   %b.caret
                 %ul.dropdown-menu
                   %li
-                    %a{href: "/profile"}
+                    %a{href: "/profile/#{find_current_user.id}"}
                       %span.glyphicon.glyphicon-cog MyProfile
                   %li
                     %a{href: "/user/logout"}

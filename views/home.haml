@@ -5,18 +5,19 @@
 -#     %p= find_field_name(question.field_id)
 -#     %p= question.time_expires
 -#     %p= (question.time_expires.to_time.to_i - Time.now.to_i) / 60
-
-%div.span8.pull-left
-  .row(style="margin:5px")
+.modal-header.text-center
+  %h2 Help center 
+.modal-body
+  .row.span8.offset2
     %ul.nav.nav-pills
       %li.active{:data=>{:class=>'critical'}}
-        %a{:href=>"javascript:;"} Critical Events
+        %a{:href=>"javascript:;"} Time out!
       %li{:data=>{:class=>'tommorow'}}
-        %a{:href=>"javascript:;"}Events for Tommorow
+        %a{:href=>"javascript:;"} The day after
       %li{:data=>{:class=>'questions'}}
-        %a{:href=>"javascript:;"}Yes/No Questions
+        %a{:href=>"javascript:;"} Yes/No Questions
       %li{:data=>{:class=>'my'}}
-        %a{:href=>'/question/myquestions'}My Events
+        %a{:href=>"javascript:;"} Help me!
     :javascript
       $('.nav li').click(function(){
         $('.hideable').hide();
@@ -25,8 +26,8 @@
         $(this).addClass('active');
         $('.' + showObj).show();
       });
-  .row.span10.critical.hideable
-    %table.tablesorter{:id =>"emergencyTable"}
+  .row.span8.critical.hideable.offset1
+    %table.table.table-striped.table-hover.vertical-middle{:id =>"emergencyTable"}
       %thead
         %tr
           %th Title
@@ -59,33 +60,39 @@
     .row
       %div.span4
       %input{:type=>'button',:value=>"See", :class=>'btn btn-normal span2 btn-success', :disabled=>true}
-  :javascript
-    $(document).ready(function(){
-      $(".tablesorter").tablesorter({
-          widthFixed:true,
-          widgets: ["zebra"]
-        });
+    :javascript
+      $(document).ready(function(){
+        $(".tablesorter").tablesorter({
+            widthFixed:true,
+            widgets: ["zebra"]
+          }); 
 
       $('.tablesorter tbody tr').click(function(){
           $('.tablesorter tbody tr').children().removeClass('selected')
           $(this).children().addClass('selected');
       })
-    });
+      });
 
-  %a{href: '/question/add', style:"margin-left:22px"} Add a question
-  .row.span8.tommorow.hideable
-  .row.span8.questions.hideable
-  .row.span8.my.hideable
+    %a{href: '/question/add', style:"margin-left:22px"} Add a question
+    .row.span8.tommorow.hideable
+    .row.span8.questions.hideable
+    .row.span8.my.hideable
+      /%a{:href=>'/question/myquestions'}My Events
 
-  %div(style="width:150px;height:150px")
+    %div(style="width:150px;height:150px")
 
-%script(src="/js/ynquestion.js")
-%aside#questionPlaceholder.span2(style="float:right;margin-right:15px")
+  .row.offset3
+    %textarea#customtextarea
+      sdsdsddsdsdsdsdsds
+  %script(src="/js/ynquestion.js")
+  %aside#questionPlaceholder.span2(style="float:right;margin-right:15px")
 
-:javascript
-  $(".search-choice-close").hide()
+  :javascript
+    $(".search-choice-close").hide()
+
 
 %div(style="clear:both")
+
 :javascript
   $(document).ready(function(){
     $('.timer').each(function(){
@@ -108,3 +115,4 @@
       },1000);
     });
   });
+

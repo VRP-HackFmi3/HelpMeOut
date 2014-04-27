@@ -1,21 +1,23 @@
-.text-center
-  %h1 Welcome!
+.modal-header
+  .row-fluid
+    %h2.text-center Welcome!
 
-  = show_success_message
-  = show_error_message
+    = show_success_message
+    = show_error_message
+.modal-body
+  .row-fluid
+    .span4.offset4
+      %form{ method: "post", role: "form" }
+        .form-group
+          %label{ for: "username" } Username:
+          %input.form-control{ id: "username", type: "text", name: "username" ,style: "height:30px"}
+        .form-group
+          %label Password:
+          %input.form-control{ type: "password", name: "password", style: "height:30px" }
+          %br
+          %br
+          %button.btn.btn-default.signup{ type: "submit" } Login
 
-  %form.spacer{ method: "post", role: "form" }
-    .form-group
-      %label{ for: "username" } Username:
-      .col-xs-3.centered
-        %input.form-control{ id: "username", type: "text", name: "username" }
-    .form-group
-      %label Password:
-      .col-xs-3.centered
-        %input.form-control{ type: "password", name: "password" }
-    %button.btn.btn-default{ type: "submit" } Login
-
-  %p.spacer
-    Still don't have an account?
-    %a{ href: "/user/register" } Register
-    now!
+      %p.spacer
+        Still don't have an account?
+        %a{ href: "/user/register" } Register now!

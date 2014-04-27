@@ -1,35 +1,42 @@
-%div.alert-success.text-center
-  %h1= @member.username
-
-%div(style="width:100%;text-align:center")
-
-  %br
-
-  %h4= @member.first_name + " " + @member.last_name
-  %form{:method=>'post', :action=>'/profile'}
-    %h5 Abilities
-    %select{ :name => "skills[]", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
-      - if @items
-        - @items.each do |element|
-          %option= element[:name]
-      - if @member.abilities
-        :javascript
-          $('#skills').val(#{@member.abilities.map{|i| i.name}});
-    :javascript
-      $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-      $('.search-field input').height('20');
-
-    %h5 Interests
-    %select{ :name => "interests[]", :id =>'insterests' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
-      - if @items
-        - @items.each do |element|
-          %option= element[:name]
-      - if @member.interests
-        :javascript
-          $('#insterests').val(#{@member.interests.map{|i| i.name}});
-    :javascript
-      $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-      $('.search-field input').height('20');
-    .row{:style=>"margin-top:10px"}
-      %input{:type=>"submit",:value=>"Submit", :class=>"btn btn-large btn-primary"}
+.modal-header
+  .text-center.alert-success
+    %h1= @profile_user.username
+.modal-body
+  .row
+    .span4
+      - unless @fullname.nil?
+        %h4=@fullname
+      %img{src: "/img/anonymous250.jpg"}
+    .span5.offset2
+      .row
+        %br
+        %strong Rank:
+        Master
+        %img.pull-right{src: "/img/yoda.jpg"}
+      .row
+        %br
+        %strong XP:
+        60
+        .progress
+          %div.bar{style: "width: 60%;"}
+      .row
+        %br
+        %strong Recent achievement:
+        %br
+        %strong Comunity helper -
+        help a 100 members
+        %img.pull-right{src: "/img/helped_100_people.png"}
+        %br
+        %a{href: "/profile/#{@profile_user.id}/achievements"} See all achievements
+      .row
+        %br
+        %strong Skills:
+        asd ads sdsd
+      .row
+        %br
+        %strong Interests:
+        fds dfdf dffd
+.modal-footer
+  - if @myprofile
+    %a.btn.btn-large.pull-right{href: "/profile/#{@profile_user.id}/edit"}Edit profile
 
