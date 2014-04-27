@@ -6,20 +6,30 @@
   %br
 
   %h4= @member.first_name + " " + @member.last_name
+  %form{:method=>'post', :action=>'/profile'}
+    %h5 Abilities
+    %select{ :name => "skills[]", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
+      - if @items
+        - @items.each do |element|
+          %option= element[:name]
+      - if @member.abilities
+        :javascript
+          $('#skills').val(#{@member.abilities.map{|i| i.name}});
+    :javascript
+      $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+      $('.search-field input').height('20');
 
-  %h5 Abilities
-  %select{ :name => "skills", :id =>'skills' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
-    - @member.abilities.each do |element|
-      %option= element[:name]
-:javascript
-  $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
-  $('.search-field input').height('20');
-  -@member.abilities.each do |ability|
-
-    %span= ability.name
-
-  %h5 Interests
-  -@member.interests.each do |interest|
-    %span= interest.name
-
+    %h5 Interests
+    %select{ :name => "interests[]", :id =>'insterests' , :multiple=>true, :class=>"chosen-select", :style=>"height:30px"}
+      - if @items
+        - @items.each do |element|
+          %option= element[:name]
+      - if @member.interests
+        :javascript
+          $('#insterests').val(#{@member.interests.map{|i| i.name}});
+    :javascript
+      $(".chosen-select").attr('data-placeholder',"Select your skills").chosen();
+      $('.search-field input').height('20');
+    .row{:style=>"margin-top:10px"}
+      %input{:type=>"submit",:value=>"Submit", :class=>"btn btn-large btn-primary"}
 
