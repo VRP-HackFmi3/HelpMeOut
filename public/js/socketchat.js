@@ -25,7 +25,7 @@
 	    return text.replace(urlRegex, function(url) {
 	    	if(url.indexOf("www.youtube.com") > 0)
 	    	{
-	    		var y = "<iframe width='560' height='315' src='//www.youtube.com/embed/YafXXQeBnaI' frameborder='0' allowfullscreen></iframe>"
+	    		var y = "<iframe width='100%' src='"+url+"' frameborder='0' allowfullscreen></iframe>"
 	    		$("#linkAggregator").append(y);
 	    	}
 	    	else
