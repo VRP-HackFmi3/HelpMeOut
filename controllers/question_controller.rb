@@ -49,7 +49,7 @@ module HelpMeOut
         type: yes_no,
       )
 
-      redirect '/question/allquestions'
+      redirect '/helpcenter'
     end
 
     get '/allquestions' do
