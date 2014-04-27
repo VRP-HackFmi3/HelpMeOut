@@ -59,6 +59,14 @@ module HelpMeOut
       haml :tryquestion
     end
 
+    get '/nextday' do
+      next_day = DateTime.now.to_date + 1
+      questions = Question.all
+      questions = questions.sort_by { |question| question.time_expires.to_date }
+      @questions = questions.select { |question| question.time_expires.to_date == next_day }
+      haml :home
+    end
+
     helpers UserHelpers, WebsiteHelpers, AuthenticationHelpers, ViewHelpers
   end
 end
