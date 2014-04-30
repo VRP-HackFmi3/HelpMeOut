@@ -1,8 +1,11 @@
 require 'sequel'
+require_relative '../helpers/autentication_helpers'
+
+include HelpMeOut::AuthenticationHelpers
+
 DB = Sequel.sqlite('../database/development.db')
 
 Dir['../{models}/*.rb'].each { |file| require file }
-
 
 at1 = AnswerType.create(name:"YesNo",score:1)
 at2 = AnswerType.create(name:"Critical",score:10)
@@ -28,12 +31,16 @@ f11 = Field.create(name:"Other")
 f12 = Field.create(name:"IT")
 f13 = Field.create(name:"Social Skills")
 
-
-u1 = User.create(username:"Drago",rank:r1,password:"parola",first_name:"Dragan",last_name:"Petrov",email:"mail@mail.com",xp:0)
-u2 = User.create(username:"Hary",rank:r1,password:"parola",first_name:"Ivelin",last_name:"Nikolov",email:"124mail@mail.com",xp:12)
-u3 = User.create(username:"Ivan",rank:r2,password:"parola",first_name:"Boris",last_name:"Jivkov",email:"mai4124l@mail.com",xp:160)
-u4 = User.create(username:"Yani",rank:r4,password:"parola",first_name:"Yana",last_name:"Ivanova",email:"maittl@mabil.com",xp:1024)
-u5 = User.create(username:"user", rank:r3, password:"parola", first_name:"Pesho", last_name:"Peshev",email: "pesho@example.bg", xp:1000)
+salt = generate_salt
+u1 = User.create(username:"Drago",salt:salt,rank:r1,password:(hash_password "parola",salt),first_name:"Dragan",last_name:"Petrov",email:"mail@mail.com",xp:0)
+salt = generate_salt
+u2 = User.create(username:"Hary",salt:salt,rank:r1,password:(hash_password "parola",salt),first_name:"Ivelin",last_name:"Nikolov",email:"124mail@mail.com",xp:12)
+salt = generate_salt
+u3 = User.create(username:"Ivan",salt:salt,rank:r2,password:(hash_password "parola",salt),first_name:"Boris",last_name:"Jivkov",email:"mai4124l@mail.com",xp:160)
+salt = generate_salt
+u4 = User.create(username:"Yani",salt:salt,rank:r4,password:(hash_password "parola",salt),first_name:"Yana",last_name:"Ivanova",email:"maittl@mabil.com",xp:1024)
+salt = generate_salt
+u5 = User.create(username:"user",salt:salt, rank:r3, password:(hash_password "parola",salt), first_name:"Pesho", last_name:"Peshev",email: "pesho@example.bg", xp:1000)
 
 u1.add_interest(f1)
 u1.add_ability(f4)

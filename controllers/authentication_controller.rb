@@ -13,7 +13,9 @@ module HelpMeOut
     post '/register' do
       @error = passwords_dont_meet_criteria(params[:password], params[:repeated_password])
       unless @error
-        User.create(username: params[:username], password: params[:password], email: params[:email])
+        salt = generate_salt
+        salted_password = hash_password params[:password], salt
+        User.create(username: params[:username],salt:salt, password: salted_password, email: params[:email])
         redirect '/user/login'
       end
 
@@ -25,7 +27,8 @@ module HelpMeOut
       user = User.find(username: params[:username])
 
       unless user.nil?
-        if user.password == params[:password]
+        salted_password = hash_password params[:password], user.salt
+        if user.password == salted_password.to_s
           session[:username] = params[:username]
           redirect_home
         else
